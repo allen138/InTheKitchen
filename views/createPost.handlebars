@@ -1,0 +1,33 @@
+
+{{!-- Jumbotron --}}
+<div id="page">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-2">In The Kitchen</h1>
+      <p class="lead">Post your recipe!</p>
+      <a href="/">← Back To Home</a>
+    </div>
+  </div>
+  {{!-- Create a Post Form --}}
+  <form>
+    <div class="form-group">
+      <label for="title">What you Cooking?</label>
+      <input type="email" class="form-control" id="title" placeholder="title">
+    </div>
+    <div class="form-group">
+      <label for="imageLink">Link an Image</label>
+      <input type="email" class="form-control" id="imageLink" placeholder="Image Link">
+    </div>
+    <div class="form-group">
+      <label for="textAreaForRecipe">How'd you do it?</label>
+      <textarea class="form-control" id="textAreaForRecipe" rows="15" placeholder="type your recipe here"></textarea>
+    </div>
+    {{!-- need to have a dropdown box to select the category --}}
+    <button type="submit" class="btn btn-primary btn-lg btn-block submit"><img src="img/iconfinder_checkmark-outline_3671727.png" />
+      Submit</button>
+  </form>
+  {{!-- footer --}}
+  <footer>
+    In The Kitchen &copy; 2019
+  </footer>
+</div>
