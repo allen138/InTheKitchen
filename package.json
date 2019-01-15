@@ -1,14 +1,22 @@
 {
-  "name": "project 2",
+  "name": "project-2",
   "version": "1.0.0",
-  "description": "Project 2 Starter",
+  "description": "UCB project work",
   "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
     "start": "node server.js",
     "lint": "eslint **/*.js --quiet",
     "fix": "eslint --fix .",
     "test": "npm run lint && NODE_ENV=test mocha -u tdd --reporter spec --exit"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ucb-project/project-2.git"
+  },
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^6.0.0",
@@ -25,5 +33,9 @@
     "eslint-plugin-prettier": "^2.6.2",
     "mocha": "^5.2.0",
     "prettier": "^1.13.7"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/ucb-project/project-2/issues"
+  },
+  "homepage": "https://github.com/ucb-project/project-2#readme"
 }
