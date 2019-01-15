@@ -1,5 +1,4 @@
 require("dotenv").config();
-var num_1 = require("express");
 var express = require("express");
 var exphbs = require("express-handlebars");
 
