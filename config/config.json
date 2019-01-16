@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "Camaro71!",
-    "database": "inTheKitchen_db",
+    "password": "process.env.password",
+    "database": "process.env.database",
     "host": "localhost",
     "dialect": "mysql"
   },
