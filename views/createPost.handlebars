@@ -11,12 +11,29 @@
   {{!-- Create a Post Form --}}
   <form>
     <div class="form-group">
+      <label for="title">Where is your dish from?</label>
+        <select name="cuisinetype">
+    <option value="Mexican ">Mexican Food</option>
+    <option value="Indian">Indian Food</option>
+    <option value="Japanese">Japanese Food</option>
+    <option value="American">American Food</option>
+    <option value="Indian ">Indian Food</option>
+    <option value="Chinese">Chinese Food</option>
+    <option value="Ethiopian">Ethiopian Food</option>
+    <option value="Latin-American">Latin-American Food</option>
+    <option value="British ">British Food</option>
+    <option value="French">French Food</option>
+    <option value="Italian">Italian Food</option>
+    <option value="Other">Other type of Food</option>
+  </select>
+    </div>
+    <div class="form-group">
       <label for="title">What you Cooking?</label>
-      <input type="email" class="form-control" id="title" placeholder="title">
+      <input type="text" class="form-control" id="title" placeholder="title">
     </div>
     <div class="form-group">
       <label for="imageLink">Link an Image</label>
-      <input type="email" class="form-control" id="imageLink" placeholder="Image Link">
+      <input type="url" class="form-control" id="imageLink" placeholder="Image Link">
     </div>
     <div class="form-group">
       <label for="textAreaForRecipe">How'd you do it?</label>
