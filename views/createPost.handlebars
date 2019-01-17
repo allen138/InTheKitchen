@@ -8,10 +8,10 @@
     </div>
   </div>
   {{!-- Create a Post Form --}}
-  <form>
+  <form action="/photo" method="POST" enctype="multipart/form-data">
     <div class="form-group">
       <label for="title">Where is your dish from?</label>
-      <select class="btn btn-outline-secondary" name="cuisinetype">
+      <select class="btn btn-outline-secondary" name="cuisinetype" id ="cuisinetype">
         <option value="default">Select an option</option>
         <option value="Mexican ">Mexican Food</option>
         <option value="Indian">Indian Food</option>
@@ -31,15 +31,16 @@
       <label for="title">What you Cooking?</label>
       <input type="text" class="form-control" id="title" placeholder="title">
     </div>
+
     <div class="form-group">
       <label for="avatar">Upload a Photo</label>
-      <input type="file" class="btn btn-outline-secondary" id="avatar" name="avatar" accept="image/png, image/jpeg">
+      <input type="file" class="btn btn-outline-secondary fileName" id="avatar" name="avatar" accept="image/png, image/jpeg, image/jpg">
     </div>
     <div class="form-group">
       <label for="textAreaForRecipe">How'd you do it?</label>
       <textarea class="form-control" id="textAreaForRecipe" rows="12" placeholder="type your recipe here"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary btn-lg btn-block submit"><img src="img/iconfinder_checkmark-outline_3671727.png" />
+    <button type="submit" class="btn btn-primary btn-lg btn-block submitform"><img src="img/iconfinder_checkmark-outline_3671727.png" />
       Submit</button>
   </form>
   {{!-- footer --}}
