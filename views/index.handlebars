@@ -1,65 +1,118 @@
 {{!-- Navbar --}}
 <div id="page">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">In The Kitchen</a>
+    <a class="navbar-brand" href="/">
+      <img src="/img/icon.png" width="30" height="30" class="d-inline-block align-top" alt="icon">
+      In The Kitchen</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Discover
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">American</a>
-            <a class="dropdown-item" href="#">Mexican</a>
-            <a class="dropdown-item" href="#">Italian</a>
-            <a class="dropdown-item" href="#">Indian</a>
-            <a class="dropdown-item" href="#">Chinese</a>
-            <a class="dropdown-item" href="#">Anything</a>
-          </div>
-        </li>
-      </ul>
-      <div class="nav-item">
-        <a class="nav-link" id="post-a-recipe" href="/createPost">Post A Recipe!</a>
-      </div>
+    </div>
+    <div class="addRecipe" style="float: right;">
+      <a class="addRecipe" id="post-a-recipe" href="/createPost">Post A Recipe!</a>
     </div>
   </nav>
   {{!-- Jumbotron --}}
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
+      <img src="/img/icon.png" width="200" height="200">
       <h1 class="display-2">In The Kitchen</h1>
       <p class="lead">A simple way to explore home cooked recipes!</p>
     </div>
   </div>
   {{!-- Food Grid --}}
   <div class="wrapper">
-    <div>American</div>
-    <div>Mexican</div>
-    <div>Italian</div>
-    <div>Indian</div>
-    <div>Chinese</div>
-    <div>Anything</div>
+    <div class="feature-container">
+      <a href="#">
+        <div class="feature-image">
+          <img src="/img/americanFood.jpg" width="210" height="150" alt="american-food">
+        </div>
+        <div class="feature-text">
+          <h4>American</h4>
+        </div>
+      </a>
+    </div>
+    <div class="feature-container">
+      <a href="#">
+        <div class="feature-image">
+          <img src="/img/mexicanFood.jpg" width="210" height="150" alt="american-food">
+        </div>
+        <div class="feature-text">
+          <h4>Mexican</h4>
+        </div>
+      </a>
+    </div>
+    <div class="feature-container">
+      <a href="#">
+        <div class="feature-image">
+          <img src="/img/italianFood.jpg" width="210" height="150" alt="american-food">
+        </div>
+        <div class="feature-text">
+          <h4>Italian</h4>
+        </div>
+      </a>
+    </div>
+    <div class="feature-container">
+      <a href="#">
+        <div class="feature-image">
+          <img src="/img/IndianFood.jpg" width="210" height="150" alt="american-food">
+        </div>
+        <div class="feature-text">
+          <h4>Indian</h4>
+        </div>
+      </a>
+    </div>
+    <div class="feature-container">
+      <a href="#">
+        <div class="feature-image">
+          <img src="/img/ChineseFood.jpg" width="210" height="150" alt="american-food">
+        </div>
+        <div class="feature-text">
+          <h4>Asain</h4>
+        </div>
+      </a>
+    </div>
+    <div class="feature-container">
+      <a href="#">
+        <div class="feature-image">
+          <img src="/img/breakfastImg.jpg" width="210" height="150" alt="american-food">
+        </div>
+        <div class="feature-text">
+          <h4>Breakfast</h4>
+        </div>
+      </a>
+    </div>
+    <div class="feature-container">
+      <a href="#">
+        <div class="feature-image">
+          <img src="/img/dessertImg.jpg" width="210" height="150" alt="american-food">
+        </div>
+        <div class="feature-text">
+          <h4>Dessert</h4>
+        </div>
+      </a>
+    </div>
+    <div class="feature-container">
+      <a href="#">
+        <div class="feature-image">
+          <img src="/img/anythingFood.jpg" width="210" height="150" alt="american-food">
+        </div>
+        <div class="feature-text">
+          <h4>Other</h4>
+        </div>
+      </a>
+    </div>
   </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <footer>
-    In The Kitchen &copy; 2019
-  </footer>
+</div>
+<footer>
+  In The Kitchen &copy; 2019
+</footer>
 </div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
