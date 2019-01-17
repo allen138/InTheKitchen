@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": "!#Trytaylor13",
+    "password": "Camaro71!",
     "database": "inTheKitchen_db",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "!#Trytaylor13",
+    "password": "process.env.password",
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
