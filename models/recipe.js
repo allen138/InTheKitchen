@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
-  var Recipe = sequelize.define("Recipe", {
-    cuisne: {
+  var Recipes = sequelize.define("Recipes", {
+    cuisine: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -30,5 +30,5 @@ module.exports = function(sequelize, DataTypes) {
   //   });
   // };
 
-  return Recipe;
+  return Recipes;
 };

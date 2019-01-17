@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Chef = sequelize.define("Chef", {
+  var Chefs = sequelize.define("Chefs", {
     // Giving the Chrf model a name of type STRING
     chefname: DataTypes.STRING
   });
@@ -10,5 +10,5 @@ module.exports = function(sequelize, DataTypes) {
   //   });
   // };
 
-  return Chef;
+  return Chefs;
 };
