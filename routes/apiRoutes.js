@@ -1,3 +1,14 @@
+var express = require('express')
+var multer  = require('multer')
+// var storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//       cb(null, '/tmp/my-uploads')
+//     },
+//     filename: function (req, file, cb) {
+//       cb(null, file.fieldname + '-' + Date.now())
+//     }
+//   })
+var upload = multer({ dest: './public/uploads' })
 var db = require("../models");
 
 module.exports = function(app) {
@@ -44,4 +55,12 @@ module.exports = function(app) {
       res.json(dbChef);
     });
   });
+//post photo
+app.post('/photo', upload.single('avatar'), function (req, res, next) {
+    console.log(req.body);  // form fields
+    console.log("body");
+    console.log(req.files); // form files
+    console.log("files");
+    res.status(204).end()
+  })
 };

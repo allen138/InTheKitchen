@@ -3,11 +3,12 @@ module.exports = function(sequelize, DataTypes) {
     // Giving the Chrf model a name of type STRING
     chefname: DataTypes.STRING
   });
-  Chef.associate = function(models) {
-    Chef.hasMany(models.Recipe, {
-      onDelete: "cascade"
-    });
-  };
+  //wait for log in
+  // Chef.associate = function(models) {
+  //   Chef.hasMany(models.Recipe, {
+  //     onDelete: "cascade"
+  //   });
+  // };
 
   return Chef;
 };

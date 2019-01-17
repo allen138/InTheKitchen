@@ -11,20 +11,24 @@ module.exports = function(sequelize, DataTypes) {
         len: [1-140]
       }
     },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     desc: {
       type: DataTypes.TEXT,
       allowNull: false,
       len: [1]
     }
   });
-
-  Recipe.associate = function(models) {
-    Recipe.belongsTo(models.Chef, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+//wait for login
+  // Recipe.associate = function(models) {
+  //   Recipe.belongsTo(models.Chef, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
 
   return Recipe;
 };
