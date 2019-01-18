@@ -1,8 +1,7 @@
-var express = require("express");
-var multer = require("multer");;
+var multer = require("multer");
 var storage = multer.diskStorage({
   destination: function(req, file, cb) {
-    cb(null, "./public/uploads");;
+    cb(null, "./public/uploads");
   },
   filename: function(req, file, cb) {
     if (req.Recipes) {
@@ -10,11 +9,10 @@ var storage = multer.diskStorage({
       return cb(null, req.Recipes.title.toString());
     }
     // fallback to the original name if you don't have a book attached to the request yet.
-    return cb(null, file.originalname);;
-    }
-
+    return cb(null, file.originalname);
+  }
 });
-var upload = multer({ storage: storage });;
+var upload = multer({ storage: storage });
 var db = require("../models");
 
 module.exports = function(app) {
@@ -41,12 +39,12 @@ module.exports = function(app) {
       res.json(dbRecipe);
     });
   });
-    /// ****** this if for Chef
+  /// ****** this if for Chef
 
   // Get all recipe
   app.get("/api/chefs", function(req, res) {
-    db.Chefs.findAll({}).then(function(dbChefs) {
-      res.json(dbChefs);
+    db.Chefs.findAll({}).then(function(dbChef) {
+      res.json(dbChef);
     });
   });
 
@@ -64,14 +62,12 @@ module.exports = function(app) {
     });
   });
 
-
-
   //post photo
-  app.post("/photo", upload.single("avatar"), function(req, res,) {
+  app.post("/photo", upload.single("avatar"), function(req, res) {
     console.log(req.body); // form files
     res.status(204).end();
   });
-    // log errs
+  // log errs
   app.use(function(err, req, res, next) {
     console.log(err);
     next(err);

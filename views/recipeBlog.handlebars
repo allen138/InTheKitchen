@@ -1,0 +1,65 @@
+{{!-- Navbar --}}
+<div id="page">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+            <img src="/img/icon.png" width="30" height="30" class="d-inline-block align-top" alt="icon">
+            In The Kitchen</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Category
+                    </button>
+                    {{!-- Able to select which category to search --}}
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">American</a>
+                        <a class="dropdown-item" href="#">Mexican</a>
+                        <a class="dropdown-item" href="#">Italian</a>
+                        <a class="dropdown-item" href="#">Indian</a>
+                        <a class="dropdown-item" href="#">Asain</a>
+                        <a class="dropdown-item" href="#">Breakfast</a>
+                        <a class="dropdown-item" href="#">Dessert</a>
+                        <a class="dropdown-item" href="#">Other</a>
+                    </div>
+                </li>
+        </div>
+        <div class="addRecipe" style="float: right;">
+            <a class="addRecipe" id="post-a-recipe" href="/createPost">Post A Recipe!</a>
+        </div>
+    </nav>
+    {{!-- Jumbotron --}}
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <img src="/img/icon.png" width="200" height="200">
+            <h1 class="display-2">In The Kitchen</h1>
+            {{!-- This messege will read whatever category your in --}}
+            <p class="lead">{{msg}}</p>
+        </div>
+    </div>
+    {{!-- Recipe Blog Section --}}
+    <div class="main-blog-container">
+        <ul>
+            {{#each Recipes}}
+            <li class="blog-container">
+                {{title}}
+                {{image}}
+                {{desc}}
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
+<footer>
+  In The Kitchen &copy; 2019
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>

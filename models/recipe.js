@@ -8,12 +8,12 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1-140]
+        len: [1, 140]
       }
     },
     image: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     desc: {
       type: DataTypes.TEXT,
@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
       len: [1]
     }
   });
-//wait for login
+  //wait for login
   // Recipe.associate = function(models) {
   //   Recipe.belongsTo(models.Chef, {
   //     foreignKey: {
