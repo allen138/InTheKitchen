@@ -19,7 +19,16 @@ module.exports = function(app) {
   /// ****** this if for Recipe
   // Get all recipe
   app.get("/api/recipes", function(req, res) {
-    db.Recipes.findAll({}).then(function(dbRecipes) {
+    db.Recipes.findAll({ where: { id: req.params.id } }).then(function(
+      dbRecipes
+    ) {
+      res.json(dbRecipes);
+    });
+  });
+  app.get("/api/getrecipes/:id", function(req, res) {
+    db.Recipes.findAll({ where: { cuisine: req.params.id } }).then(function(
+      dbRecipes
+    ) {
       res.json(dbRecipes);
     });
   });
@@ -33,7 +42,7 @@ module.exports = function(app) {
 
   // Delete an example by id
   app.delete("/api/recipes/:id", function(req, res) {
-    db.Recipes.destroy({ where: { id: req.params.id } }).then(function(
+    db.Recipes.destroy({ where: {} }).then(function(
       dbRecipe
     ) {
       res.json(dbRecipe);
@@ -41,14 +50,14 @@ module.exports = function(app) {
   });
   /// ****** this if for Chef
 
-  // Get all recipe
+  // Get all chefs
   app.get("/api/chefs", function(req, res) {
     db.Chefs.findAll({}).then(function(dbChef) {
       res.json(dbChef);
     });
   });
 
-  // Create a new example
+  // Create a new chefs
   app.post("/api/chefs", function(req, res) {
     db.Chefs.create(req.body).then(function(dbChef) {
       res.json(dbChef);

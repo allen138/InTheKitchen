@@ -97,3 +97,18 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+//New Stuff
+
+//on click of for each
+$(document).on("click", ".feature-container", function() {
+  var idtoGet = $(this).attr("id");
+  getthisRecipe(idtoGet);
+});
+//get this type of recipe
+function getthisRecipe(idtoGet) {
+  var id = idtoGet;
+  $.get("/api/getrecipes/" + id, function(data) {
+    console.log(data);
+  });
+}

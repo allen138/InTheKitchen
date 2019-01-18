@@ -4,19 +4,11 @@ $(document).ready(function() {
 });
 
 $(document).on("click", ".submitform", function() {
-  console.log("clicked submit");
   event.preventDefault();
-  console.log($("#cuisinetype").val());
-  console.log($("#titleforRecipe").val());
-  console.log($("#textAreaForRecipe").val());
-  console.log(
-    $("#avatar")
-      .val()
-      .split("\\")
-      .pop()
-  );
+  console.log($("#alertSuccess").val());
+
   insertNewRecipe({
-    cuisine: $("#cuisinetype").val(),
+    cuisine: $("#cuisinetype").val().trim(),
     title: $("#titleforRecipe").val(),
     image: $("#avatar")
       .val()
