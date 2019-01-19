@@ -8,7 +8,9 @@ $(document).on("click", ".submitform", function() {
   console.log($("#alertSuccess").val());
 
   insertNewRecipe({
-    cuisine: $("#cuisinetype").val().trim(),
+    cuisine: $("#cuisinetype")
+      .val()
+      .trim(),
     title: $("#titleforRecipe").val(),
     image: $("#avatar")
       .val()

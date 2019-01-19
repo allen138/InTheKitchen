@@ -45,8 +45,63 @@ body{
 div.dropdown-menu > a.dropdown-item:hover{
   background-color: rgba(0, 0, 0, 0.1);
 }
+#login-btn-container{
+  margin: 0 auto;
+  margin-top: 25px;
+  padding: 50px;
+  width: 400px;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+}
+#googleLogInBtn{
+  display: block;
+  margin: 0 auto;
+  background-color: rgb(221, 75, 57);
+  color: whitesmoke;
+  width: 60%;
+}
+#googleLogInBtn:hover{
+  background-color: rgb(187, 55, 37)
+}
+#facebookLogInBtn{
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  background-color: steelblue;
+  color: whitesmoke;
+  width: 60%;
+}
+#facebookLogInBtn:hover{
+  background-color: rgb(18, 46, 129)
+}
+#loginImg{
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  bottom: -80px;
+}
 footer{
   text-align: center;
   font-size: 14px;
   padding: 20px;
+}
+/* Media Queries */
+@media (max-width: 1200px) {
+  #page{
+    width: 95%
+  }
+  .wrapper{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+  }
+}
+@media (max-width: 620px) {
+  #page{
+    width: 95%
+  }
+  .wrapper{
+    display: grid;
+    grid-template-columns: auto;
+    gap: 20px;
+  }
 }
