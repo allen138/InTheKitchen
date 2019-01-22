@@ -15,6 +15,7 @@ function getUser() {
       $(".userName").hide();
     } else {
       $("#loggedInUserName").text(data.firstName);
+      $("#loggedInUserName").addClass(data.id);
       $(".login").hide();
     }
   });

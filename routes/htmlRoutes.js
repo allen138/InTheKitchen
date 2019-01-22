@@ -19,6 +19,23 @@ module.exports = function(app) {
   app.get("/favorites", function(req, res) {
     res.render("myFavorites");
   });
+    // your recipes
+    app.get("/yourrecipes", function(req, res) {
+    
+      res.render("yourRecipes");
+    });
+  // My posted recipes for a logged in user
+  app.get("/yourrecipes/:id", function(req, res) {
+    console.log(req.params.id);
+    db.Recipes.findAll({
+      include: {
+        model: [db.Auths],
+        where:{id : req.params.id}}
+    }).then(function(dbRecipe) {
+
+      res.render("yourRecipes",{Recipes: dbRecipe});
+    });
+  });
   // Render Login Page
   app.get("/login", function(req, res) {
     console.log(req.user);

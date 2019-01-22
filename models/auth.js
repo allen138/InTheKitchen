@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Auth = sequelize.define("Auth", {
+  var Auths = sequelize.define("Auths", {
     firstName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -33,6 +33,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
+    Auths.associate = function(models) {
+    Auths.hasMany(models.Recipes, {
+      onDelete: "cascade"
+    });
+  };
 
-  return Auth;
+  return Auths;
 };

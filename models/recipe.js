@@ -22,13 +22,13 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
   //wait for login
-  // Recipe.associate = function(models) {
-  //   Recipe.belongsTo(models.Chef, {
-  //     foreignKey: {
-  //       allowNull: false
-  //     }
-  //   });
-  // };
+  Recipes.associate = function(models) {
+    Recipes.belongsTo(models.Auths, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
 
   return Recipes;
 };

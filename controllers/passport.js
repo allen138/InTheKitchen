@@ -9,7 +9,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-  db.Auth.findById(id).then(function(user) {
+  db.Auths.findById(id).then(function(user) {
     done(null, user);
   });
 });
@@ -24,7 +24,7 @@ passport.use(
     },
     function(accesstoken, refreshtoken, profile, done) {
       // console.log(profile);
-      db.Auth.findOne({
+      db.Auths.findOne({
         where: { googleId: profile.id }
       }).then(function(existingUser) {
         if (existingUser) {
@@ -32,7 +32,7 @@ passport.use(
           console.log("Logged In User : " + existingUser.id);
           done(null, existingUser);
         } else {
-          db.Auth.create({
+          db.Auths.create({
             googleId: profile.id,
             firstName: profile.name.givenName,
             lastName: profile.name.familyName,

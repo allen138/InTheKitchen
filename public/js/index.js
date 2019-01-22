@@ -103,7 +103,6 @@ $(document).ready(function() {
   getUser();
 });
 
-
 //on click of for each
 $(document).on("click", ".feature-container", function() {
   var idtoGet = $(this).attr("id");
@@ -117,11 +116,24 @@ function getthisRecipe(idtoGet) {
   });
 }
 //get user
+var userid;
 function getUser() {
   
   $.get("/api/current_user", function(data) {
-    console.log(data.firstName);
+    userid = data.id;
     $("#loggedInUserName").text(data.firstName);
-  });
+  }).then(function(userid) {
+    gerthisusersRecies(userid);
+  })
+}
+
+$(document).on("click", ".yourRecipes", function() {
+  window.location.href = "/yourrecipes/" + userid;
+  
+});
+
+function gerthisusersRecies(userid) {
+  var id = userid;
+  $.get("/yourrecipes/" + id);
 }
 
