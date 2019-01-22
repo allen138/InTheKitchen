@@ -1,0 +1,30 @@
+{{!-- NavBar --}}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/home">
+        <img src="/img/icon.png" width="30" height="30" class="d-inline-block align-top" alt="icon">
+        In The Kitchen</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/home">Home</a>
+            </li>
+        </ul>
+    </div>
+    <div class="userName">
+        <span class="userName">Welcome! <span id="loggedInUserName"></span></span> |
+        <a class="addRecipe" id="post-a-recipe" href="/createPost">Post A Recipe!</a>
+    </div>
+</nav>
+<div id="page">
+    <div id="savedRecipes">
+        {{!-- your saved recipes --}}
+        {{!-- should be able to delete them --}}
+    </div>
+</div>
+<footer>
+    In The Kitchen &copy; 2019
+</footer>

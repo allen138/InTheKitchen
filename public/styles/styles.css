@@ -63,7 +63,7 @@ div.dropdown-menu > a.dropdown-item:hover{
   width: 60%;
 }
 #googleLogInBtn:hover{
-  background-color: rgb(187, 55, 37)
+  background-color: rgb(187, 55, 37);
 }
 #facebookLogInBtn{
   display: block;
@@ -74,7 +74,13 @@ div.dropdown-menu > a.dropdown-item:hover{
   width: 60%;
 }
 #facebookLogInBtn:hover{
-  background-color: rgb(18, 46, 129)
+  background-color: rgb(18, 46, 129);
+}
+.loginBtn{
+  text-decoration: none;
+}
+.loginBtn:hover{
+  text-decoration: none;
 }
 #loginImg{
   display: block;
@@ -82,6 +88,15 @@ div.dropdown-menu > a.dropdown-item:hover{
   position: relative;
   bottom: -80px;
 }
+/* Blog Container Styles */
+.blog-container{
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 10px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+/* Footer */
 footer{
   text-align: center;
   font-size: 14px;
