@@ -110,6 +110,5 @@ function getthisRecipe(idtoGet) {
   var id = idtoGet;
   $.get("/api/getrecipes/" + id, function(data) {
     console.log(data);
-    
   });
 }

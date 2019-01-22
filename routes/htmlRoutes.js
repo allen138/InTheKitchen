@@ -23,7 +23,6 @@ module.exports = function(app) {
   //-------------------------------------------------------
   //load blog page --- only for test use --- will delete later
   // app.get("/blog", function(req, res) {
-    
   //   res.render("recipeBlog");
   // });
   app.get("/login", function(req, res) {
@@ -32,9 +31,10 @@ module.exports = function(app) {
   //--------------------------------------------------------
   // Load recipe page and pass in an recipe by id
   app.get("/api/getrecipes/:id", function(req, res) {
-    db.Recipes.findAll({ where: { cuisine: req.params.id  } }).then(function(
+    db.Recipes.findAll({ where: { cuisine: req.params.id } }).then(function(
       dbRecipe
-    ) {console.log(dbRecipe[0].title);
+    ) {
+      console.log(dbRecipe[0].title);
       res.render("recipeBlog", {
         Recipes: dbRecipe
       });
