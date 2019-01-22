@@ -99,6 +99,10 @@ $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
 //New Stuff
+$(document).ready(function() {
+  getUser();
+});
+
 
 //on click of for each
 $(document).on("click", ".feature-container", function() {
@@ -112,3 +116,12 @@ function getthisRecipe(idtoGet) {
     console.log(data);
   });
 }
+//get user
+function getUser() {
+  
+  $.get("/api/current_user", function(data) {
+    console.log(data.firstName);
+    $("#loggedInUserName").text(data.firstName);
+  });
+}
+
