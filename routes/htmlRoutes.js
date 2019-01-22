@@ -25,6 +25,9 @@ module.exports = function(app) {
   app.get("/blog", function(req, res) {
     res.render("recipeBlog");
   });
+  app.get("/login", function(req, res) {
+    res.render("signInPage");
+  });
   //--------------------------------------------------------
   // Load recipe page and pass in an recipe by id
   app.get("/api/recipes/:id", function(req, res) {
