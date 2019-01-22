@@ -16,6 +16,10 @@ module.exports = function(app) {
   app.get("/createPost", function(req, res) {
     res.render("createPost");
   });
+  //Home Page for a Logged in User
+  app.get("/home", function(req, res) {
+    res.json("Logged in");
+  });
   //-------------------------------------------------------
   //load blog page --- only for test use --- will delete later
   // app.get("/blog", function(req, res) {
