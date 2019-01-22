@@ -11,8 +11,8 @@ var PORT = process.env.PORT || 5000;
 // Middleware
 app.use(
   cookieSession({
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: 10
+    maxAge: 24 * 60 * 60 * 1000,
+    keys: ["my secret Key"]
   })
 );
 app.use(express.urlencoded({ extended: false }));

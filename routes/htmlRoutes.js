@@ -18,6 +18,7 @@ module.exports = function(app) {
   });
   //Home Page for a Logged in User
   app.get("/home", function(req, res) {
+    console.log(req.user);
     res.json("Logged in");
   });
   //-------------------------------------------------------
@@ -26,6 +27,7 @@ module.exports = function(app) {
   //   res.render("recipeBlog");
   // });
   app.get("/login", function(req, res) {
+    console.log(req.user);
     res.render("signInPage");
   });
   //--------------------------------------------------------
