@@ -42,9 +42,7 @@ module.exports = function(app) {
 
   // Delete an example by id
   app.delete("/api/recipes/:id", function(req, res) {
-    db.Recipes.destroy({ where: {} }).then(function(
-      dbRecipe
-    ) {
+    db.Recipes.destroy({ where: {} }).then(function(dbRecipe) {
       res.json(dbRecipe);
     });
   });
