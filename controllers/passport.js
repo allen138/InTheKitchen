@@ -1,6 +1,8 @@
 var googleStratergy = require("passport-google-oauth20").Strategy;
 var passport = require("passport");
 var db = require("../models");
+var google = "GOOGLE";
+// var facebook = "FACEBOOK";
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
@@ -27,6 +29,7 @@ passport.use(
       }).then(function(existingUser) {
         if (existingUser) {
           console.log("Logged In User : " + profile.id);
+          console.log("Logged In User : " + existingUser.id);
           done(null, existingUser);
         } else {
           db.Auth.create({
@@ -34,8 +37,10 @@ passport.use(
             firstName: profile.name.givenName,
             lastName: profile.name.familyName,
             email: profile.emails[0].value,
-            avatar: profile.photos[0].value
+            avatar: profile.photos[0].value,
+            mode: google
           }).then(function(user) {
+            console.log(user.id);
             done(null, user);
           });
         }

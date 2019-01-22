@@ -11,6 +11,7 @@ module.exports = function(app) {
   });
   // Home Page for a Logged in User
   app.get("/home", function(req, res) {
+    console.log(req.user);
     res.render("myHome");
   });
   // My favorites page for a logged in user
@@ -19,6 +20,7 @@ module.exports = function(app) {
   });
   // Render Login Page
   app.get("/login", function(req, res) {
+    console.log(req.user);
     res.render("signInPage");
   });
   // Load recipe page and pass in an recipe by id
