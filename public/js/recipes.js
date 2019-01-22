@@ -20,7 +20,18 @@ $(document).on("click", ".submitform", function() {
   });
 });
 function insertNewRecipe(authorData) {
-  $.post("/api/newrecipes", authorData).then(console.log("here"));
+  $.post("/api/newrecipes", authorData)
+    .then(console.log("here"))
+    .then(function() {
+      $("#cuisinetype").val("");
+      $("#titleforRecipe").val("");
+      $("#avatar").val("");
+      $("#textAreaForRecipe").val("");
+      $("#alertSubmit")
+        .html("Success")
+        .css("color", "#009933");
+      $("#alertSuccess").html("");
+    });
 }
 $(document).on("click", "#clicktoUpload", function() {
   if (

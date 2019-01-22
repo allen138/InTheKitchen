@@ -25,13 +25,13 @@ module.exports = function(app) {
       res.json(dbRecipes);
     });
   });
-  app.get("/api/getrecipes/:id", function(req, res) {
-    db.Recipes.findAll({ where: { cuisine: req.params.id } }).then(function(
-      dbRecipes
-    ) {
-      res.json(dbRecipes);
-    });
-  });
+  // app.get("/api/getrecipes/:id", function(req, res) {
+  //   db.Recipes.findAll({ where: { cuisine: req.params.id } }).then(function(
+  //     dbRecipes
+  //   ) {
+  //     res.json(dbRecipes);
+  //   });
+  // });
 
   // Create a new example
   app.post("/api/newrecipes", function(req, res) {
