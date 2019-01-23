@@ -11,7 +11,10 @@ module.exports = function(app) {
   });
   // Home Page for a Logged in User
   app.get("/home", function(req, res) {
-    console.log(req.user);
+    console.log("Logged In User ID:" + req.user.id);
+    console.log("Logged In firstName:" + req.user.firstName);
+    console.log("Logged In LastName:" + req.user.lastName);
+    console.log("Logged In Avatar:" + req.user.avatar);
     res.render("myHome");
   });
   // My favorites page for a logged in user
