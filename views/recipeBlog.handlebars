@@ -30,16 +30,16 @@
                 </li>
         </div>
         <div class="addRecipe" style="float: right;">
-           <span class="userName">Welcome <span id="loggedInUserName"></span>!</span> |
-          <a class="login" id="post-a-recipe" href="/login">Sign In</a> |
+            <span class="userName">Welcome <span id="loggedInUserName"></span>!</span>
+            <a class="login" id="post-a-recipe" href="/login">Sign In</a> |
             <a class="addRecipe" id="post-a-recipe" href="/createPost">Post A Recipe!</a>
         </div>
     </nav>
     {{!-- Jumbotron --}}
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <img src="/img/icon.png" width="200" height="200">
-            <h1 class="display-2">In The Kitchen</h1>
+            <img src="/img/icon.png" width="150" height="150">
+            <h1 class="display-4">In The Kitchen</h1>
             {{!-- This messege will read whatever category your in --}}
             <p class="lead">{{msg}}</p>
         </div>
@@ -49,11 +49,9 @@
         <div>
             {{#each Recipes}}
             <div class="blog-container">
-                <p><strong>{{title}}</strong></p>
-                <div>
-                    <img src="/uploads/{{image}}" width="200" height="200">
-                </div>
-                <p>{{image}}</p>
+                <h3 id="blogTitle"><strong>{{title}}</strong></h3>
+                <button id="saveRecipe"><img src="/img/saveRecipeImg.png" alt="save-recipe"></button>
+                <img id="blogImg" src="/uploads/{{image}}" width="300" height="300">
                 <p>{{desc}}</p>
             </div>
             {{/each}}

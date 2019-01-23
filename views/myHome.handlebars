@@ -10,23 +10,19 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/favorites">Favorites</a>
-                </li>
             </ul>
         </div>
         <div class="userName">
-            <span class="userName">Welcome <span id="loggedInUserName"></span>!</span> |
-            <a class="yourRecipes" id="yourRecipes" href = "/yourrecipes">Your Recipes</a> |
-            <a class="addRecipe" id="post-a-recipe" href="/createPost">Post A Recipe!</a>
+            <a class="yourRecipes" id="yourRecipes" href="/yourrecipes">Your Recipes</a> |
+            <a class="addRecipe" id="post-a-recipe" href="/createPost">Post A Recipe!</a> |
+            <a class="logoutBtn" href="/api/logout">Logout</a>
         </div>
     </nav>
     {{!-- Jumbotron --}}
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <img src="/img/icon.png" width="200" height="200">
-            <h1 class="display-2">In The Kitchen</h1>
-            <p class="lead">A simple way to explore home cooked recipes!</p>
+            <h1 class="display-2"><span class="userName">Welcome <span id="loggedInUserName"></span>!</span></h1>
+            <p class="lead">Find a Recipe or Post Your Own!</p>
         </div>
     </div>
     {{!-- Food Grid --}}

@@ -10,7 +10,7 @@ body{
 .navbar{
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
-.display-2{
+.display-2, .display-4{
   font-family: 'Amatic SC', cursive;
 }
 .jumbotron{
@@ -95,9 +95,41 @@ div.dropdown-menu > a.dropdown-item:hover{
   padding: 10px;
   margin: 0 auto;
   margin-top: 10px;
+  overflow: hidden;
+}
+#blogTitle{
+  text-align: center;
+}
+#blogImg{
+  position: relative;
+  float: left;
+  margin: 15px;
+}
+p{
+  font-size: 20px;
+  padding: 10px;
+}
+#saveRecipe{
+  position: relative;
+  float: right;
+  border: none;
+  background-color: #e5e5e5;
+  margin: 5px;
+  cursor: pointer;
+  top: -45px;
+}
+#editRecipe{
+  position: relative;
+  float: right;
+  border: none;
+  background-color: #e5e5e5;
+  margin: 5px;
+  cursor: pointer;
+  top: -45px;
 }
 /* Footer */
 footer{
+  clear: both;
   text-align: center;
   font-size: 14px;
   padding: 20px;

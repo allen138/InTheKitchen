@@ -97,7 +97,7 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
-
+//-------------------------------------------------------------------------------------------//
 //New Stuff
 $(document).ready(function() {
   getUser();
@@ -118,22 +118,19 @@ function getthisRecipe(idtoGet) {
 //get user
 var userid;
 function getUser() {
-  
   $.get("/api/current_user", function(data) {
     userid = data.id;
     $("#loggedInUserName").text(data.firstName);
   }).then(function(userid) {
     gerthisusersRecies(userid);
-  })
+  });
 }
 
 $(document).on("click", ".yourRecipes", function() {
   window.location.href = "/yourrecipes/" + userid;
-  
 });
 
 function gerthisusersRecies(userid) {
   var id = userid;
   $.get("/yourrecipes/" + id);
 }
-
