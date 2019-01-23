@@ -1,7 +1,6 @@
 var db = require("../models");
 
 module.exports = function(app) {
-
   // Load index page
   app.get("/", function(req, res) {
     res.render("index");
@@ -19,21 +18,20 @@ module.exports = function(app) {
   app.get("/favorites", function(req, res) {
     res.render("myFavorites");
   });
-    // your recipes
-    app.get("/yourrecipes", function(req, res) {
-    
-      res.render("yourRecipes");
-    });
+  // your recipes
+  app.get("/yourrecipes", function(req, res) {
+    res.render("yourRecipes");
+  });
   // My posted recipes for a logged in user
   app.get("/yourrecipes/:id", function(req, res) {
     console.log(req.params.id);
     db.Recipes.findAll({
       include: {
         model: [db.Auths],
-        where:{id : req.params.id}}
+        where: { id: req.params.id }
+      }
     }).then(function(dbRecipe) {
-
-      res.render("yourRecipes",{Recipes: dbRecipe});
+      res.render("yourRecipes", { Recipes: dbRecipe });
     });
   });
   // Render Login Page

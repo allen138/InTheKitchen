@@ -33,7 +33,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
-    Auths.associate = function(models) {
+  Auths.associate = function(models) {
     Auths.hasMany(models.Recipes, {
       onDelete: "cascade"
     });
