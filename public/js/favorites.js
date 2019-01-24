@@ -13,11 +13,7 @@ $(document).on("click", ".deleteRecipe", function() {
     type: "DELETE"
   }).then(function() {
     setTimeout(function() {
-    getthisFavs();
+      window.location.href = "/favorites";
     }, 1000);
   });
 });
- function getthisFavs (){
-     console.log("this was called");
-    $.get("/favorites");
- };
