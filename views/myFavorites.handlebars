@@ -25,7 +25,7 @@
             {{#each Recipes}}
             <div class="blog-container" >
                 <h3 id="blogTitle"><strong >{{title}}</strong></h3>
-                <button class="saveRecipe" id ={{id}}><img src="/img/trashCan.png" alt="save-recipe" width="20" height="20"></button>
+                <button class="deleteRecipe" id ={{id}}><img src="/img/trashCan.png" alt="save-recipe" width="20" height="20"></button>
                 <img id="blogImg" src="/uploads/{{image}}" width="300" height="300">
                 <p>{{desc}}</p>
             </div>
@@ -36,3 +36,5 @@
 <footer>
     In The Kitchen &copy; 2019
 </footer>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/favorites.js"></script>
