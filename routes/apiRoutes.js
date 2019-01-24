@@ -32,6 +32,19 @@ module.exports = function(app) {
     });
   });
 
+  //update example
+  app.put("/api/updateRecipe", function(req, res) {
+    console.log(req.body);
+    db.Recipes.update(
+      req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      }).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
   // Delete an example by id
   app.delete("/api/recipes/:id", function(req, res) {
     db.Recipes.destroy({ where: {} }).then(function(dbRecipe) {
