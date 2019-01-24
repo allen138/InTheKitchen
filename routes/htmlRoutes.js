@@ -44,7 +44,7 @@ module.exports = function(app) {
           where: { id: array }
         }).then(function(data) {
           res.render("myFavorites", { Recipes: data });
-        });;
+        });
       });
   });
   // My posted recipes for a logged in user

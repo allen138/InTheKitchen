@@ -83,7 +83,7 @@ module.exports = function(app) {
     db.Favorites.destroy({
       where: {
         RecipeId: req.params.id,
-
+        AuthorId:userId
       }
     }).then(function(dbAuthor) {
       res.json(dbAuthor);
