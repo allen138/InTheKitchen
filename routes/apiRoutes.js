@@ -72,8 +72,14 @@ module.exports = function(app) {
       res.json(dbFav);
     });
   });
+
+  var userId;
+
+
   //delete a favorite
   app.delete("/api/deletefavorite/:id", function(req, res) {
+    userId = req.user.id;
+    console.log(userId);
     db.Favorites.destroy({
       where: {
         RecipeId: req.params.id,
