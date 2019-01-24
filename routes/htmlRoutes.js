@@ -3,11 +3,19 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    res.render("index");
+    if (req.user) {
+      res.redirect("/home");
+    } else {
+      res.render("index");
+    }
   });
   // Load page to create a post.
   app.get("/createPost", function(req, res) {
-    res.render("createPost");
+    if (req.user) {
+      res.render("createPost");
+    } else {
+      res.redirect("/login");
+    }
   });
   var userId;
   // Home Page for a Logged in User
@@ -23,23 +31,17 @@ module.exports = function(app) {
   app.get("/favorites", function(req, res) {
     res.render("myFavorites");
   });
-  // your recipes
-  // app.get("/yourrecipes", function(req, res) {
-  //   res.render("yourRecipes");
-  // });
   // My posted recipes for a logged in user
   app.get("/yourrecipes", function(req, res) {
     console.log(userId);
-    var modeltoUse= db.Auths;
+    var modeltoUse = db.Auths;
     db.Recipes.findAll({
       include: {
         model: modeltoUse,
         where: { id: userId }
       }
     }).then(function(dbRecipe) {
-      res.render("yourRecipes", {Recipes: dbRecipe});
-      
-    
+      res.render("yourRecipes", { Recipes: dbRecipe });
     });
   });
   // Render Login Page

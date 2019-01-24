@@ -28,6 +28,9 @@ $(document).on("click", ".submitform", function() {
     desc: $("#textAreaForRecipe").val(),
     AuthId: userid
   });
+  setTimeout(function() {
+    window.location.href = "/home";
+  }, 1000);
 });
 function insertNewRecipe(authorData) {
   $.post("/api/newrecipes", authorData)
