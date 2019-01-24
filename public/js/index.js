@@ -16,6 +16,8 @@ function getthisRecipe(idtoGet) {
     console.log(data);
   });
 }
+<<<<<<< HEAD
+=======
 //get user
 var userid;
 function getUser() {
@@ -36,3 +38,4 @@ function getUser() {
 function gerthisusersRecies() {
   $.get("/yourrecipes/id");
 }
+>>>>>>> 556afe9f96e3d3d98729ba3c85ddaf507850cb03

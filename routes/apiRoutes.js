@@ -66,6 +66,12 @@ module.exports = function(app) {
     console.log(req.body); // form files
     res.status(204).end();
   });
+  //post likes
+  app.post("/api/newfavorite", function(req, res) {
+    db.Favorites.create(req.body).then(function(dbFav) {
+      res.json(dbFav);
+    });
+  });
   // log errs
   app.use(function(err, req, res, next) {
     console.log(err);

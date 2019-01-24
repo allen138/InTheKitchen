@@ -3,9 +3,10 @@ $(document).ready(function() {
   getUser();
 });
 
+var userid;
 function getUser() {
   console.log("loaded");
-  var userid;
+
   $.get("/api/current_user", function(data) {
     userid = data.id;
     console.log(userid + "this is the user id");
