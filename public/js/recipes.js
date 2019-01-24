@@ -18,6 +18,9 @@ $(document).on("click", ".submitform", function() {
       .pop(),
     desc: $("#textAreaForRecipe").val()
   });
+  setTimeout(function() {
+    window.location.href = "/home";
+  }, 1000);
 });
 function insertNewRecipe(authorData) {
   $.post("/api/newrecipes", authorData)

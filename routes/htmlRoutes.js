@@ -3,11 +3,19 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    res.render("index");
+    if (req.user) {
+      res.redirect("/home");
+    } else {
+      res.render("index");
+    }
   });
   // Load page to create a post.
   app.get("/createPost", function(req, res) {
-    res.render("createPost");
+    if (req.user) {
+      res.render("createPost");
+    } else {
+      res.redirect("/login");
+    }
   });
   // Home Page for a Logged in User
   app.get("/home", function(req, res) {
