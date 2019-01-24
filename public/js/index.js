@@ -16,8 +16,6 @@ function getthisRecipe(idtoGet) {
     console.log(data);
   });
 }
-<<<<<<< HEAD
-=======
 //get user
 var userid;
 function getUser() {
@@ -28,7 +26,7 @@ function getUser() {
     gerthisusersRecies(userid);
   });
 }
-
+getUser();
 // $(document).on("click", ".yourRecipes", function() {
 //   console.log("here");
 //   console.log(req.user.id);
@@ -38,4 +36,10 @@ function getUser() {
 function gerthisusersRecies() {
   $.get("/yourrecipes/id");
 }
->>>>>>> 556afe9f96e3d3d98729ba3c85ddaf507850cb03
+function renderAvatar() {
+  $.get("/api/current_user", function(data) {
+    var avatarUrl = data.avatar;
+    $("#avatarImgTag").attr("src", avatarUrl);
+  });
+}
+renderAvatar();

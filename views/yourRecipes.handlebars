@@ -29,10 +29,13 @@
                     <div class="whattoSearch"></div>
                 </li>
         </div>
-        <div class="addRecipe">
-            <span class="userName">Welcome <span id="loggedInUserName"></span>!</span> |
-            <a class="addRecipe" id="post-a-recipe" href="/createPost">Post A Recipe!</a> |
-            <a class="logoutBtn" href="/api/logout">Logout</a>
+          <div class="dropdown">
+            <button class="btn btn-light bg-light dropdown-toggle" type="button" id="avatar-dropdown-menu" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false"><img id="avatarImgTag">
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="avatar-dropdown-menu">
+                <a class="dropdown-item" href="/api/logout">Logout</a>
+            </div>
         </div>
     </nav>
     {{!-- Jumbotron --}}
@@ -40,6 +43,17 @@
         <div class="container">
             <img src="/img/icon.png" width="150" height="150">
             <h1 class="display-4">Your Kitchen</h1>
+        </div>
+    </div>
+        <div class="container-myHomeBtns">
+        <div class="row">
+            <div class="col">
+                <a class="homeBtnsLink" href="/favorites"><button class="btn btn-outline-secondary myHomeBtn">Favorites</button></a>
+            </div>
+            <div class="col">
+                <a class="homeBtnsLink" id="post-a-recipe" href="/createPost"><button class="btn btn-outline-secondary myHomeBtn">Post
+                        a Recipe</button></a>
+            </div>
         </div>
     </div>
     {{!-- Recipe Blog Section --}}
@@ -63,5 +77,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
     crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-    crossorigin="anonymous"></script>>
-<script src="/js/yourRecipes.js"></script>
+    crossorigin="anonymous"></script>
+<script src="/js/index.js"></script>
