@@ -113,19 +113,51 @@ p{
   position: relative;
   float: right;
   border: none;
+  border-radius: 50%;
   background-color: #e5e5e5;
   margin: 5px;
   cursor: pointer;
   top: -45px;
+  transition: transform .2s;
+}
+#saveRecipe:hover{
+  background-color: rgba(26, 23, 23, 0.397);
+  transform: scale(1.3);
 }
 #editRecipe{
   position: relative;
   float: right;
   border: none;
+  border-radius: 50%;
   background-color: #e5e5e5;
   margin: 5px;
   cursor: pointer;
   top: -45px;
+  transition: transform .2s;
+}
+#editRecipe:hover{
+  background-color: rgba(26, 23, 23, 0.397);
+  transform: scale(1.3);
+}
+/* My Home Page */
+#myHomeLead{
+  margin-bottom: 0;
+}
+.container-myHomeBtns{
+  margin-bottom: 20px;
+}
+.myHomeBtn{
+  display: block;
+  margin: 0 auto;
+  text-decoration: none;
+  transition: transform .2s;
+}
+.myHomeBtn:hover{
+  text-decoration: none;
+  transform: scale(1.5);
+}
+.homeBtnsLink:hover{
+  text-decoration: none;
 }
 /* Footer */
 footer{

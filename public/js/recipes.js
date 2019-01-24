@@ -3,7 +3,6 @@ $(document).ready(function() {
   getUser();
 });
 
-
 function getUser() {
   console.log("loaded");
   var userid;

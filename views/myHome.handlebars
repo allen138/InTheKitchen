@@ -13,8 +13,8 @@
             </ul>
         </div>
         <div class="userName">
-            <a class="yourRecipes" id="yourRecipes" href="/yourrecipes">Your Recipes</a> |
-            <a class="addRecipe" id="post-a-recipe" href="/createPost">Post A Recipe!</a> |
+            {{!-- <a class="yourRecipes" id="yourRecipes" href="/yourrecipes">Your Recipes</a> |
+            <a class="addRecipe" id="post-a-recipe" href="/createPost">Post A Recipe!</a> | --}}
             <a class="logoutBtn" href="/api/logout">Logout</a>
         </div>
     </nav>
@@ -22,7 +22,20 @@
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h1 class="display-2"><span class="userName">Welcome <span id="loggedInUserName"></span>!</span></h1>
-            <p class="lead">Find a Recipe or Post Your Own!</p>
+            <p class="lead" id="myHomeLead">Find a Recipe or Post Your Own!</p>
+        </div>
+    </div>
+    <div class="container-myHomeBtns">
+        <div class="row">
+            <div class="col">
+                <a class="homeBtnsLink" href="/favorites"><button class="btn btn-outline-secondary myHomeBtn">Favorites</button></a>
+            </div>
+            <div class="col">
+                <a class="homeBtnsLink" id="yourRecipes" href="/yourrecipes"><button class="btn btn-outline-secondary myHomeBtn">Your Recipes</button></a>
+            </div>
+            <div class="col">
+                <a class="homeBtnsLink" id="post-a-recipe" href="/createPost"><button class="btn btn-outline-secondary myHomeBtn">Post a Recipe</button></a>
+            </div>
         </div>
     </div>
     {{!-- Food Grid --}}
