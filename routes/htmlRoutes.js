@@ -27,9 +27,25 @@ module.exports = function(app) {
     console.log("Logged In Avatar:" + req.user.avatar);
     res.render("myHome");
   });
+  var array = [];
   // My favorites page for a logged in user
   app.get("/favorites", function(req, res) {
-    res.render("myFavorites");
+    db.Favorites.findAll({
+      where: { AuthorId: userId },
+      attributes: [["RecipeId", "id"]]
+    })
+      .then(function(dbRecipe) {
+        for (i = 0; i < dbRecipe.length; i++) {
+          array.push(dbRecipe[i].dataValues.id);
+        };
+      })
+      .then(function() {
+        db.Recipes.findAll({
+          where: { id: array }
+        }).then(function(data) {
+          res.render("myFavorites", { Recipes: data });
+        });;
+      });
   });
   // My posted recipes for a logged in user
   app.get("/yourrecipes", function(req, res) {

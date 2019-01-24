@@ -21,8 +21,16 @@
 </nav>
 <div id="page">
     <div id="savedRecipes">
-        {{!-- your saved recipes --}}
-        {{!-- should be able to delete them --}}
+        <div>
+            {{#each Recipes}}
+            <div class="blog-container" >
+                <h3 id="blogTitle"><strong >{{title}}</strong></h3>
+                <button class="saveRecipe" id ={{id}}><img src="/img/trashCan.png" alt="save-recipe" width="20" height="20"></button>
+                <img id="blogImg" src="/uploads/{{image}}" width="300" height="300">
+                <p>{{desc}}</p>
+            </div>
+            {{/each}}
+        </div>
     </div>
 </div>
 <footer>
