@@ -17,9 +17,11 @@ module.exports = function(app) {
       res.redirect("/login");
     }
   });
+  var userId;
   // Home Page for a Logged in User
   app.get("/home", function(req, res) {
     console.log("Logged In User ID:" + req.user.id);
+    userId = req.user.id;
     console.log("Logged In firstName:" + req.user.firstName);
     console.log("Logged In LastName:" + req.user.lastName);
     console.log("Logged In Avatar:" + req.user.avatar);
@@ -30,19 +32,22 @@ module.exports = function(app) {
     res.render("myFavorites");
   });
   // your recipes
-  app.get("/yourrecipes", function(req, res) {
-    res.render("yourRecipes");
-  });
+  // app.get("/yourrecipes", function(req, res) {
+  //   res.render("yourRecipes");
+  // });
   // My posted recipes for a logged in user
-  app.get("/yourrecipes/:id", function(req, res) {
-    console.log(req.params.id);
+  app.get("/yourrecipes", function(req, res) {
+    console.log(userId);
+    var modeltoUse= db.Auths;
     db.Recipes.findAll({
       include: {
-        model: [db.Auths],
-        where: { id: req.params.id }
+        model: modeltoUse,
+        where: { id: userId }
       }
     }).then(function(dbRecipe) {
-      res.render("yourRecipes", { Recipes: dbRecipe });
+      res.render("yourRecipes", {Recipes: dbRecipe});
+      
+    
     });
   });
   // Render Login Page
