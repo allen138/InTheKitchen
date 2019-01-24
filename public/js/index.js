@@ -115,24 +115,3 @@ function getthisRecipe(idtoGet) {
     console.log(data);
   });
 }
-//get user
-var userid;
-function getUser() {
-  $.get("/api/current_user", function(data) {
-    userid = data.id;
-    $("#loggedInUserName").text(data.firstName);
-  }).then(function(userid) {
-    gerthisusersRecies(userid);
-  });
-}
-
-// $(document).on("click", ".yourRecipes", function() {
-//   console.log("here");
-//   console.log(req.user.id);
-//   window.location.href = "/yourrecipes/" + userid;
-// });
-
-function gerthisusersRecies() {
- 
-  $.get("/yourrecipes/id");
-}
