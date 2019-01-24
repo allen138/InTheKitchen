@@ -21,7 +21,6 @@ module.exports = function(sequelize, DataTypes) {
       len: [1]
     }
   });
-  //wait for login
   Recipes.associate = function(models) {
     Recipes.belongsTo(models.Auths, {
       foreignKey: {
@@ -29,6 +28,6 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
   };
-
   return Recipes;
+  
 };

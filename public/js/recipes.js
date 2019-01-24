@@ -1,8 +1,17 @@
 //document ready on load
 $(document).ready(function() {
-  //on form submission
+  getUser();
 });
 
+
+function getUser() {
+  console.log("loaded");
+  var userid;
+  $.get("/api/current_user", function(data) {
+    userid = data.id;
+    console.log(userid + "this is the user id");
+  });
+}
 $(document).on("click", ".submitform", function() {
   event.preventDefault();
   console.log($("#alertSuccess").val());
@@ -16,7 +25,8 @@ $(document).on("click", ".submitform", function() {
       .val()
       .split("\\")
       .pop(),
-    desc: $("#textAreaForRecipe").val()
+    desc: $("#textAreaForRecipe").val(),
+    AuthId: userid
   });
 });
 function insertNewRecipe(authorData) {

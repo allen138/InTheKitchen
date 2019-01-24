@@ -100,7 +100,7 @@ $exampleList.on("click", ".delete", handleDeleteBtnClick);
 //-------------------------------------------------------------------------------------------//
 //New Stuff
 $(document).ready(function() {
-  getUser();
+   gerthisusersRecies();
 });
 
 //on click of for each
@@ -126,11 +126,13 @@ function getUser() {
   });
 }
 
-$(document).on("click", ".yourRecipes", function() {
-  window.location.href = "/yourrecipes/" + userid;
-});
+// $(document).on("click", ".yourRecipes", function() {
+//   console.log("here");
+//   console.log(req.user.id);
+//   window.location.href = "/yourrecipes/" + userid;
+// });
 
-function gerthisusersRecies(userid) {
-  var id = userid;
-  $.get("/yourrecipes/" + id);
+function gerthisusersRecies() {
+ 
+  $.get("/yourrecipes/id");
 }
