@@ -20,3 +20,4 @@ function insertnewFav(authorData) {
   $.post("/api/newfavorite", authorData)
     .then(console.log("here"));
 }
+
