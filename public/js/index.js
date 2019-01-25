@@ -21,6 +21,7 @@ var userid;
 function getUser() {
   $.get("/api/current_user", function(data) {
     userid = data.id;
+    console.log(userid);
     $("#loggedInUserName").text(data.firstName);
   }).then(function(userid) {
     gerthisusersRecies(userid);

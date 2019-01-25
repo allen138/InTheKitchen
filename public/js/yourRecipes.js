@@ -1,6 +1,3 @@
-$(document).ready(function() {
-  
-});
 var idofRecipe;
 $(document).on("click", ".editRecipe", function() {
   idofRecipe = $(this).attr("id");
@@ -25,13 +22,11 @@ $(document).on("click", ".savetheUpdates", function() {
   }, 1000);
 });
 function updateRecipe(authorData) {
-   $.ajax({
-      method: "PUT",
-      url: "/api/updateRecipe",
-      data: authorData
-    }).then(function() {
-     
-      window.location.href = "/yourrecipes";
-      });
-  }
-
+  $.ajax({
+    method: "PUT",
+    url: "/api/updateRecipe",
+    data: authorData
+  }).then(function() {
+    window.location.href = "/yourrecipes";
+  });
+}

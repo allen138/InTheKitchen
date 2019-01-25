@@ -10,12 +10,11 @@ function getUser() {
 }
 $(document).on("click", ".saveRecipe", function() {
   insertnewFav({
-    AuthorId:userid,
-    RecipeId:$(this).attr("id")
+    AuthorId: userid,
+    RecipeId: $(this).attr("id")
   });
 });
 
 function insertnewFav(authorData) {
-  $.post("/api/newfavorite", authorData)
+  $.post("/api/newfavorite", authorData);
 }
-

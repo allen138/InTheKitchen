@@ -4,12 +4,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    RecipeId:{
+    RecipeId: {
       type: DataTypes.STRING,
-      allowNull: false,
-      }
-    });
+      allowNull: false
+    }
+  });
 
   return Favorites;
-  
 };
