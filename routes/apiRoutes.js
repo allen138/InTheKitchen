@@ -35,13 +35,11 @@ module.exports = function(app) {
   //update example
   app.put("/api/updateRecipe", function(req, res) {
     console.log(req.body);
-    db.Recipes.update(
-      req.body,
-      {
-        where: {
-          id: req.body.id
-        }
-      }).then(function(dbPost) {
+    db.Recipes.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbPost) {
       res.json(dbPost);
     });
   });
@@ -88,7 +86,6 @@ module.exports = function(app) {
 
   var userId;
 
-
   //delete a favorite
   app.delete("/api/deletefavorite/:id", function(req, res) {
     userId = req.user.id;
@@ -96,7 +93,7 @@ module.exports = function(app) {
     db.Favorites.destroy({
       where: {
         RecipeId: req.params.id,
-        AuthorId:userId
+        AuthorId: userId
       }
     }).then(function(dbAuthor) {
       res.json(dbAuthor);

@@ -37,7 +37,7 @@ module.exports = function(app) {
       .then(function(dbRecipe) {
         for (i = 0; i < dbRecipe.length; i++) {
           array.push(dbRecipe[i].dataValues.id);
-        };
+        }
       })
       .then(function() {
         db.Recipes.findAll({
