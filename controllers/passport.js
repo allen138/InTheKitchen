@@ -19,9 +19,9 @@ passport.deserializeUser(function(id, done) {
 passport.use(
   new FacebookStrategy(
     {
-      clientID: "2380051518732127",
-      clientSecret: "64bc75ec67ebe1741d4f3108e4cfd731",
-      callbackURL: "http://localhost:5000/auth/facebook/callback",
+      clientID: process.env.facebook.clientID,
+      clientSecret: process.env.facebook.clientSecret,
+      callbackURL: process.env.facebook.callbackURL,
       profileFields: ["id", "displayName", "name", "gender", "photos", "emails"]
     },
     function(accessToken, refreshToken, profile, done) {
@@ -56,10 +56,9 @@ passport.use(
 passport.use(
   new googleStratergy(
     {
-      clientID:
-        "52401465745-75h2bjmdbmu3jmi6po7m53992c32tn5o.apps.googleusercontent.com",
-      clientSecret: "BWQ14HHc-gJVTFpoafKvg6D7",
-      callbackURL: "http://localhost:5000/auth/google/callback"
+      clientID: process.env.google.clientID,
+      clientSecret: process.env.google.clientSecret,
+      callbackURL: process.env.google.callbackURL
     },
     function(accesstoken, refreshtoken, profile, done) {
       // console.log(profile);
