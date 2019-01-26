@@ -8,7 +8,6 @@ $(document).on("click", ".dropdown-item", function() {
 });
 //get user
 function getUser() {
-  
   $.get("/api/current_user", function(data) {
     if (!data.firstName) {
       $(".login").show();
