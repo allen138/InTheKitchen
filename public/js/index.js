@@ -28,11 +28,6 @@ function getUser() {
   });
 }
 getUser();
-// $(document).on("click", ".yourRecipes", function() {
-//   console.log("here");
-//   console.log(req.user.id);
-//   window.location.href = "/yourrecipes/" + userid;
-// });
 
 function gerthisusersRecies() {
   $.get("/yourrecipes/id");

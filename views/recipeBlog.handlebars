@@ -29,10 +29,17 @@
                     <div class="whattoSearch"></div>
                 </li>
         </div>
-        <div class="addRecipe" style="float: right;">
-            <span class="userName">Welcome <span id="loggedInUserName"></span>!</span>
-            <a class="login" id="post-a-recipe" href="/login">Sign In</a> |
-            <a class="addRecipe" id="post-a-recipe" href="/createPost">Post A Recipe!</a>
+        <div class="addRecipe">
+            <a class="addRecipe" id="post-a-recipe" href="/createPost">Post A Recipe</a> |
+            <a class="login" id="post-a-recipe" href="/login">Sign In</a>
+        </div>
+        <div class="dropdown" id="avatarDropdown">
+            <button class="btn btn-light bg-light dropdown-toggle" type="button" id="avatar-dropdown-menu" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false"><img id="avatarImgTag">
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="avatar-dropdown-menu">
+                <a class="dropdown-item" href="/api/logout">Logout</a>
+            </div>
         </div>
     </nav>
     {{!-- Jumbotron --}}
@@ -48,9 +55,9 @@
     <div class="main-blog-container">
         <div>
             {{#each Recipes}}
-            <div class="blog-container" >
-                <h3 id="blogTitle"><strong >{{title}}</strong></h3>
-                <button class="saveRecipe" id ={{id}}><img src="/img/saveRecipeImg.png" alt="save-recipe"></button>
+            <div class="blog-container">
+                <h3 id="blogTitle"><strong>{{title}}</strong></h3>
+                <button class="saveRecipe" id={{id}}><img src="/img/saveRecipeImg.png" alt="save-recipe"><span id="saveSuccess{{id}}"></span></button>
                 <img class="blogImg" src="/uploads/{{image}}" width="300" height="300">
                 <p>{{desc}}</p>
             </div>
