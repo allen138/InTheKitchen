@@ -16,10 +16,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     email: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1, 240]
-      }
+      allowNull: true
     },
     avatar: {
       type: DataTypes.STRING,
@@ -28,7 +25,11 @@ module.exports = function(sequelize, DataTypes) {
         len: [1, 240]
       }
     },
-    googleId: {
+    authMode: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    authModeID: {
       type: DataTypes.STRING,
       allowNull: false
     }
