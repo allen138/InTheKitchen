@@ -3,35 +3,58 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    res.render("index");
+    if (req.user) {
+      res.redirect("/home");
+    } else {
+      res.render("index");
+    }
   });
   // Load page to create a post.
   app.get("/createPost", function(req, res) {
-    res.render("createPost");
+    if (req.user) {
+      res.render("createPost");
+    } else {
+      res.redirect("/login");
+    }
   });
+  var userId;
   // Home Page for a Logged in User
   app.get("/home", function(req, res) {
     console.log("Logged In User ID:" + req.user.id);
+    userId = req.user.id;
     console.log("Logged In firstName:" + req.user.firstName);
     console.log("Logged In LastName:" + req.user.lastName);
     console.log("Logged In Avatar:" + req.user.avatar);
     res.render("myHome");
   });
+  var array = [];
   // My favorites page for a logged in user
   app.get("/favorites", function(req, res) {
-    res.render("myFavorites");
-  });
-  // your recipes
-  app.get("/yourrecipes", function(req, res) {
-    res.render("yourRecipes");
+    db.Favorites.findAll({
+      where: { AuthorId: userId },
+      attributes: [["RecipeId", "id"]]
+    })
+      .then(function(dbRecipe) {
+        for (i = 0; i < dbRecipe.length; i++) {
+          array.push(dbRecipe[i].dataValues.id);
+        }
+      })
+      .then(function() {
+        db.Recipes.findAll({
+          where: { id: array }
+        }).then(function(data) {
+          res.render("myFavorites", { Recipes: data });
+        });
+      });
   });
   // My posted recipes for a logged in user
-  app.get("/yourrecipes/:id", function(req, res) {
-    console.log(req.params.id);
+  app.get("/yourrecipes", function(req, res) {
+    console.log(userId);
+    var modeltoUse = db.Auths;
     db.Recipes.findAll({
       include: {
-        model: [db.Auths],
-        where: { id: req.params.id }
+        model: modeltoUse,
+        where: { id: userId }
       }
     }).then(function(dbRecipe) {
       res.render("yourRecipes", { Recipes: dbRecipe });

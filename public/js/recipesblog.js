@@ -1,21 +1,20 @@
-//on page load
 $(document).ready(function() {
   getUser();
 });
 
-$(document).on("click", ".dropdown-item", function() {
-  console.log(this.attr("id"));
-});
-//get user
+var userid;
 function getUser() {
   $.get("/api/current_user", function(data) {
-    if (!data.firstName) {
-      $(".login").show();
-      $(".userName").hide();
-    } else {
-      $("#loggedInUserName").text(data.firstName);
-      $("#loggedInUserName").addClass(data.id);
-      $(".login").hide();
-    }
+    userid = data.id;
   });
+}
+$(document).on("click", ".saveRecipe", function() {
+  insertnewFav({
+    AuthorId: userid,
+    RecipeId: $(this).attr("id")
+  });
+});
+
+function insertnewFav(authorData) {
+  $.post("/api/newfavorite", authorData);
 }

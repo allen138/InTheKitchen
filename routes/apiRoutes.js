@@ -32,6 +32,17 @@ module.exports = function(app) {
     });
   });
 
+  //update example
+  app.put("/api/updateRecipe", function(req, res) {
+    console.log(req.body);
+    db.Recipes.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
   // Delete an example by id
   app.delete("/api/recipes/:id", function(req, res) {
     db.Recipes.destroy({ where: {} }).then(function(dbRecipe) {
@@ -65,6 +76,28 @@ module.exports = function(app) {
   app.post("/photo", upload.single("avatar"), function(req, res) {
     console.log(req.body); // form files
     res.status(204).end();
+  });
+  //post likes
+  app.post("/api/newfavorite", function(req, res) {
+    db.Favorites.create(req.body).then(function(dbFav) {
+      res.json(dbFav);
+    });
+  });
+
+  var userId;
+
+  //delete a favorite
+  app.delete("/api/deletefavorite/:id", function(req, res) {
+    userId = req.user.id;
+    console.log(userId);
+    db.Favorites.destroy({
+      where: {
+        RecipeId: req.params.id,
+        AuthorId: userId
+      }
+    }).then(function(dbAuthor) {
+      res.json(dbAuthor);
+    });
   });
   // log errs
   app.use(function(err, req, res, next) {

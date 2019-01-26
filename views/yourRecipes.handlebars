@@ -9,56 +9,87 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown">
-                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Category
-                    </button>
-                    {{!-- Able to select which category to search --}}
-                    <div class="dropdown-menu cuisineSelector" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/api/getrecipes/American" id="American">American</a>
-                        <a class="dropdown-item" href="/api/getrecipes/Mexican" id="Mexican">Mexican</a>
-                        <a class="dropdown-item" href="/api/getrecipes/Italian" id="Italian">Italian</a>
-                        <a class="dropdown-item" href="/api/getrecipes/Indian" id="Indian">Indian</a>
-                        <a class="dropdown-item" href="/api/getrecipes/Asain" id="Asian">Asain</a>
-                        <a class="dropdown-item" href="/api/getrecipes/Breakfast" id="Breakfast">Breakfast</a>
-                        <a class="dropdown-item" href="/api/getrecipes/Dessert" id="Dessert">Dessert</a>
-                        <a class="dropdown-item" href="/api/getrecipes/Other" id="Other">Other</a>
-                    </div>
-                    <div class="whattoSearch"></div>
-                </li>
+            <ul class="navbar-nav mr-auto"></ul>
         </div>
-        <div class="addRecipe" style="float: right;">
-           <span class="userName">Welcome <span id="loggedInUserName"  ></span>!</span> |
-          <a class="login" id="post-a-recipe" href="/login">Sign In</a> |
-            <a class="addRecipe" id="post-a-recipe" href="/createPost">Post A Recipe!</a>
+          <div class="dropdown">
+            <button class="btn btn-light bg-light dropdown-toggle" type="button" id="avatar-dropdown-menu" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false"><img id="avatarImgTag">
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="avatar-dropdown-menu">
+                <a class="dropdown-item" href="/api/logout">Logout</a>
+            </div>
         </div>
     </nav>
     {{!-- Jumbotron --}}
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <img src="/img/icon.png" width="200" height="200">
-            <h1 class="display-2">In The Kitchen</h1>
-            {{!-- This messege will read whatever category your in --}}
-            <p class="lead">{{msg}}</p>
+            <img src="/img/icon.png" width="150" height="150">
+            <h1 class="display-4">Your Kitchen</h1>
+        </div>
+    </div>
+        <div class="container-myHomeBtns">
+        <div class="row">
+            <div class="col">
+                <a class="homeBtnsLink" href="/favorites"><button class="btn btn-outline-secondary myHomeBtn">Favorites</button></a>
+            </div>
+            <div class="col">
+                <a class="homeBtnsLink" id="post-a-recipe" href="/createPost"><button class="btn btn-outline-secondary myHomeBtn">Post
+                        a Recipe</button></a>
+            </div>
         </div>
     </div>
     {{!-- Recipe Blog Section --}}
     <div class="main-blog-container">
         <div>
             {{#each Recipes}}
-            <div class="blog-container">
-                <p><strong>{{title}}</strong></p>
-                <div>
-                    <img src="/uploads/{{image}}" width="200" height="200">
-                </div>
-                <p>{{image}}</p>
-                <p>{{desc}}</p>
+            <div class="blog-container" id ="recipe"{{id}}>
+                <h3 id="blogTitle"><strong class ="title{{id}}" id ={{title}}>{{title}}</strong></h3>
+                <button class="editRecipe" id ={{id}} data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/editImg.png" alt="edit"></button>
+                <img class="blogImg img{{id}} " id ={{image}} src="/uploads/{{image}}" width="300" height="300">
+                <p class = "desc{{id}}" id ={{desc}}>{{desc}}</p>
             </div>
             {{/each}}
         </div>
     </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Update Your Recipe</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/photo" method="POST" enctype="multipart/form-data">
+
+    <div class="form-group">
+      <label for="title">What you Cooking?</label>
+      <input type="text" class="form-control" id="titleforRecipe">
+    </div>
+{{!-- I cant seem to update this id correctly --}}
+    {{!-- <div class="form-group">
+      <label for="avatar">Upload a Photo</label>
+      <input type="file" class="btn btn-outline-secondary fileName" id="avatar" name="avatar" accept="image/png, image/jpeg, image/jpg">
+    <input type="submit"  id="clicktoUpload" value ="Click To upload">
+    <div class="alertSuccess" id="alertSuccess"></div>
+    </div> --}}
+    <div class="form-group">
+      <label for="textAreaForRecipe">How'd you do it?</label>
+      <textarea class="form-control" id="textAreaForRecipe" rows="12" ></textarea>
+    </div>
+
+  </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary savetheUpdates">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
 <footer>
     In The Kitchen &copy; 2019
@@ -67,5 +98,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
     crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-    crossorigin="anonymous"></script>>
-<script src="/js/yourRecipes.js"></script>
+    crossorigin="anonymous"></script>
+<script src="/js/index.js"></script>
+<script src="/js/yourrecipes.js"></script>

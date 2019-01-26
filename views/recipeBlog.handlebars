@@ -30,16 +30,16 @@
                 </li>
         </div>
         <div class="addRecipe" style="float: right;">
-           <span class="userName">Welcome <span id="loggedInUserName"></span>!</span> |
-          <a class="login" id="post-a-recipe" href="/login">Sign In</a> |
+            <span class="userName">Welcome <span id="loggedInUserName"></span>!</span>
+            <a class="login" id="post-a-recipe" href="/login">Sign In</a> |
             <a class="addRecipe" id="post-a-recipe" href="/createPost">Post A Recipe!</a>
         </div>
     </nav>
     {{!-- Jumbotron --}}
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <img src="/img/icon.png" width="200" height="200">
-            <h1 class="display-2">In The Kitchen</h1>
+            <img src="/img/icon.png" width="150" height="150">
+            <h1 class="display-4">In The Kitchen</h1>
             {{!-- This messege will read whatever category your in --}}
             <p class="lead">{{msg}}</p>
         </div>
@@ -48,12 +48,10 @@
     <div class="main-blog-container">
         <div>
             {{#each Recipes}}
-            <div class="blog-container">
-                <p><strong>{{title}}</strong></p>
-                <div>
-                    <img src="/uploads/{{image}}" width="200" height="200">
-                </div>
-                <p>{{image}}</p>
+            <div class="blog-container" >
+                <h3 id="blogTitle"><strong >{{title}}</strong></h3>
+                <button class="saveRecipe" id ={{id}}><img src="/img/saveRecipeImg.png" alt="save-recipe"></button>
+                <img class="blogImg" src="/uploads/{{image}}" width="300" height="300">
                 <p>{{desc}}</p>
             </div>
             {{/each}}
@@ -67,5 +65,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
     crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-    crossorigin="anonymous"></script>>
+    crossorigin="anonymous"></script>
 <script src="/js/recipesblog.js"></script>

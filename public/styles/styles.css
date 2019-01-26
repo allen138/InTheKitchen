@@ -10,7 +10,7 @@ body{
 .navbar{
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
-.display-2{
+.display-2, .display-4{
   font-family: 'Amatic SC', cursive;
 }
 .jumbotron{
@@ -95,9 +95,95 @@ div.dropdown-menu > a.dropdown-item:hover{
   padding: 10px;
   margin: 0 auto;
   margin-top: 10px;
+  overflow: hidden;
+}
+#blogTitle{
+  text-align: center;
+}
+.blogImg{
+  position: relative;
+  float: left;
+  margin: 15px;
+}
+p{
+  font-size: 20px;
+  padding: 10px;
+}
+.saveRecipe{
+  position: relative;
+  float: right;
+  border: none;
+  border-radius: 50%;
+  background-color: #e5e5e5;
+  margin: 5px;
+  cursor: pointer;
+  top: -45px;
+  transition: transform .2s;
+}
+.saveRecipe:hover{
+  background-color: rgba(26, 23, 23, 0.397);
+  transform: scale(1.3);
+}
+.editRecipe{
+  position: relative;
+  float: right;
+  border: none;
+  border-radius: 50%;
+  background-color: #e5e5e5;
+  margin: 5px;
+  cursor: pointer;
+  top: -45px;
+  transition: transform .2s;
+}
+.editRecipe:hover{
+  background-color: rgba(26, 23, 23, 0.397);
+  transform: scale(1.3);
+}
+.deleteRecipe{
+  position: relative;
+  float: right;
+  border: none;
+  border-radius: 50%;
+  background-color: #e5e5e5;
+  margin: 5px;
+  cursor: pointer;
+  top: -45px;
+  transition: transform .2s;
+}
+.deleteRecipe:hover{
+  background-color: rgba(26, 23, 23, 0.397);
+  transform: scale(1.3);
+}
+/* My Home Page */
+#avatar-dropdown-menu{
+  border: none;
+  border-radius: 15px 5px 5px 15px;
+}
+#avatarImgTag{
+  border-radius: 50%;
+}
+#myHomeLead{
+  margin-bottom: 0;
+}
+.container-myHomeBtns{
+  margin-bottom: 20px;
+}
+.myHomeBtn{
+  display: block;
+  margin: 0 auto;
+  text-decoration: none;
+  transition: transform .2s;
+}
+.myHomeBtn:hover{
+  text-decoration: none;
+  transform: scale(1.5);
+}
+.homeBtnsLink:hover{
+  text-decoration: none;
 }
 /* Footer */
 footer{
+  clear: both;
   text-align: center;
   font-size: 14px;
   padding: 20px;
