@@ -1,0 +1,76 @@
+{{!-- Navbar --}}
+<div id="page">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+            <img src="/img/icon.png" width="30" height="30" class="d-inline-block align-top" alt="icon">
+            In The Kitchen</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Category
+                    </button>
+                    {{!-- Able to select which category to search --}}
+                    <div class="dropdown-menu cuisineSelector" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/api/getrecipes/American" id="American">American</a>
+                        <a class="dropdown-item" href="/api/getrecipes/Mexican" id="Mexican">Mexican</a>
+                        <a class="dropdown-item" href="/api/getrecipes/Italian" id="Italian">Italian</a>
+                        <a class="dropdown-item" href="/api/getrecipes/Indian" id="Indian">Indian</a>
+                        <a class="dropdown-item" href="/api/getrecipes/Asain" id="Asian">Asain</a>
+                        <a class="dropdown-item" href="/api/getrecipes/Breakfast" id="Breakfast">Breakfast</a>
+                        <a class="dropdown-item" href="/api/getrecipes/Dessert" id="Dessert">Dessert</a>
+                        <a class="dropdown-item" href="/api/getrecipes/Other" id="Other">Other</a>
+                    </div>
+                    <div class="whattoSearch"></div>
+                </li>
+        </div>
+        <div class="addRecipe">
+            <a class="addRecipe" id="post-a-recipe" href="/createPost">Post A Recipe</a> |
+            <a class="login" id="post-a-recipe" href="/login">Sign In</a>
+        </div>
+        <div class="dropdown" id="avatarDropdown">
+            <button class="btn btn-light bg-light dropdown-toggle" type="button" id="avatar-dropdown-menu" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false"><img id="avatarImgTag">
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="avatar-dropdown-menu">
+                <a class="dropdown-item" href="/api/logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+    {{!-- Jumbotron --}}
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <img src="/img/icon.png" width="150" height="150">
+            <h1 class="display-4">In The Kitchen</h1>
+            {{!-- This messege will read whatever category your in --}}
+            <p class="lead">{{msg}}</p>
+        </div>
+    </div>
+    {{!-- Recipe Blog Section --}}
+    <div class="main-blog-container">
+        <div>
+            {{#each Recipes}}
+            <div class="blog-container">
+                <h3 id="blogTitle"><strong>{{title}}</strong></h3>
+                <button class="saveRecipe" id={{id}}><img src="/img/saveRecipeImg.png" alt="save-recipe"><span id="saveSuccess{{id}}"></span></button>
+                <img class="blogImg" src="/uploads/{{image}}" width="300" height="300">
+                <p>{{desc}}</p>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+<footer>
+    In The Kitchen &copy; 2019
+</footer>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+<script src="/js/recipesblog.js"></script>

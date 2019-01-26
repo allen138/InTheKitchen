@@ -1,0 +1,138 @@
+{{!-- Navbar --}}
+<div id="page">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/home">
+            <img src="/img/icon.png" width="30" height="30" class="d-inline-block align-top" alt="icon">
+            In The Kitchen</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-light bg-light dropdown-toggle" type="button" id="avatar-dropdown-menu" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false"><img id="avatarImgTag">
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="avatar-dropdown-menu">
+                <a class="dropdown-item" href="/api/logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+    {{!-- Jumbotron --}}
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-2"><span class="userName">Welcome <span id="loggedInUserName"></span>!</span></h1>
+            <p class="lead" id="myHomeLead">Find a Recipe or Post Your Own!</p>
+        </div>
+    </div>
+    <div class="container-myHomeBtns">
+        <div class="row">
+            <div class="col">
+                <a class="homeBtnsLink" href="/favorites"><button class="btn btn-outline-secondary myHomeBtn">Favorites</button></a>
+            </div>
+            <div class="col">
+                <a class="homeBtnsLink" id="yourRecipes" href="/yourrecipes"><button class="btn btn-outline-secondary myHomeBtn">Your
+                        Recipes</button></a>
+            </div>
+            <div class="col">
+                <a class="homeBtnsLink" id="post-a-recipe" href="/createPost"><button class="btn btn-outline-secondary myHomeBtn">Post
+                        a Recipe</button></a>
+            </div>
+        </div>
+    </div>
+    {{!-- Food Grid --}}
+    <div class="wrapper clickableWrapper">
+        <div class="feature-container americanfoodCont" id="American">
+            <a class="feature-anchor" href="/api/getrecipes/American">
+                <div class="feature-image">
+                    <img src="/img/americanFood.jpg" alt="american" style="width:100%">
+                </div>
+                <div class="feature-text">
+                    <h4>American</h4>
+                </div>
+            </a>
+        </div>
+        <div class="feature-container mexicanfoodCont" id="Mexican">
+            <a class="feature-anchor" href="/api/getrecipes/Mexican">
+                <div class="feature-image">
+                    <img src="/img/mexicanFood.jpg" alt="mexican" style="width:100%">
+                </div>
+                <div class="feature-text">
+                    <h4>Mexican</h4>
+                </div>
+            </a>
+        </div>
+        <div class="feature-container italianfoodCont" id="Italian">
+            <a class="feature-anchor" href="/api/getrecipes/Italian">
+                <div class="feature-image">
+                    <img src="/img/italianFood.jpg" alt="italian" style="width:100%">
+                </div>
+                <div class="feature-text">
+                    <h4>Italian</h4>
+                </div>
+            </a>
+        </div>
+        <div class="feature-container indainfoodCont" id="Indian">
+            <a class="feature-anchor" href="/api/getrecipes/Indian">
+                <div class="feature-image">
+                    <img src="/img/IndianFood.jpg" alt="indian" style="width:100%">
+                </div>
+                <div class="feature-text">
+                    <h4>Indian</h4>
+                </div>
+            </a>
+        </div>
+        <div class="feature-container asainfoodCont" id="Asain">
+            <a class="feature-anchor" href="/api/getrecipes/Asain">
+                <div class="feature-image">
+                    <img src="/img/asainFood.jpg" alt="asain" style="width:100%">
+                </div>
+                <div class="feature-text">
+                    <h4>Asain</h4>
+                </div>
+            </a>
+        </div>
+        <div class="feature-container breakfastfoodCont" id="Breakfast">
+            <a class="feature-anchor" href="/api/getrecipes/Breakfast">
+                <div class="feature-image">
+                    <img src="/img/breakfastImg.jpg" alt="breakfast" style="width:100%">
+                </div>
+                <div class="feature-text">
+                    <h4>Breakfast</h4>
+                </div>
+            </a>
+        </div>
+        <div class="feature-container dessertfoodCont" id="Dessert">
+            <a class="feature-anchor" href="/api/getrecipes/Dessert">
+                <div class="feature-image">
+                    <img src="/img/dessertImg.jpg" alt="dessert" style="width:100%">
+                </div>
+                <div class="feature-text">
+                    <h4>Dessert</h4>
+                </div>
+            </a>
+        </div>
+        <div class="feature-container anythingfoodCont" id="Other">
+            <a class="feature-anchor" href="/api/getrecipes/Other">
+                <div class="feature-image">
+                    <img src="/img/anythingFood.jpg" alt="other" style="width:100%">
+                </div>
+                <div class="feature-text">
+                    <h4>Other</h4>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<footer>
+    In The Kitchen &copy; 2019
+</footer>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+<script src="/js/index.js"></script>

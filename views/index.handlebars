@@ -1,33 +1,115 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class= "form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
+{{!-- Navbar --}}
+<div id="page">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">
+      <img src="/img/icon.png" width="30" height="30" class="d-inline-block align-top" alt="icon">
+      In The Kitchen</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+      </ul>
+    </div>
+    <div class="login">
+      <a class="login" id="post-a-recipe" href="/login">Sign In</a>
+    </div>
+  </nav>
+  {{!-- Jumbotron --}}
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <img src="/img/icon.png" width="200" height="200">
+      <h1 class="display-2">In The Kitchen</h1>
+      <p class="lead">A simple way to explore home cooked recipes!</p>
+    </div>
+  </div>
+  {{!-- Food Grid --}}
+  <div class="wrapper clickableWrapper">
+    <div class="feature-container americanfoodCont" id="American">
+      <a class="feature-anchor" href="/api/getrecipes/American">
+        <div class="feature-image">
+          <img src="/img/americanFood.jpg" alt="american" style="width:100%">
+        </div>
+        <div class="feature-text">
+          <h4>American</h4>
+        </div>
+      </a>
+    </div>
+    <div class="feature-container mexicanfoodCont" id="Mexican">
+      <a class="feature-anchor" href="/api/getrecipes/Mexican">
+        <div class="feature-image">
+          <img src="/img/mexicanFood.jpg" alt="mexican" style="width:100%">
+        </div>
+        <div class="feature-text">
+          <h4>Mexican</h4>
+        </div>
+      </a>
+    </div>
+    <div class="feature-container italianfoodCont" id="Italian">
+      <a class="feature-anchor" href="/api/getrecipes/Italian">
+        <div class="feature-image">
+          <img src="/img/italianFood.jpg" alt="italian" style="width:100%">
+        </div>
+        <div class="feature-text">
+          <h4>Italian</h4>
+        </div>
+      </a>
+    </div>
+    <div class="feature-container indainfoodCont" id="Indian">
+      <a class="feature-anchor" href="/api/getrecipes/Indian">
+        <div class="feature-image">
+          <img src="/img/IndianFood.jpg" alt="indian" style="width:100%">
+        </div>
+        <div class="feature-text">
+          <h4>Indian</h4>
+        </div>
+      </a>
+    </div>
+    <div class="feature-container asainfoodCont" id="Asain">
+      <a class="feature-anchor" href="/api/getrecipes/Asain">
+        <div class="feature-image">
+          <img src="/img/asainFood.jpg" alt="asain" style="width:100%">
+        </div>
+        <div class="feature-text">
+          <h4>Asain</h4>
+        </div>
+      </a>
+    </div>
+    <div class="feature-container breakfastfoodCont" id="Breakfast">
+      <a class="feature-anchor" href="/api/getrecipes/Breakfast">
+        <div class="feature-image">
+          <img src="/img/breakfastImg.jpg" alt="breakfast" style="width:100%">
+        </div>
+        <div class="feature-text">
+          <h4>Breakfast</h4>
+        </div>
+      </a>
+    </div>
+    <div class="feature-container dessertfoodCont" id="Dessert">
+      <a class="feature-anchor" href="/api/getrecipes/Dessert">
+        <div class="feature-image">
+          <img src="/img/dessertImg.jpg" alt="dessert" style="width:100%">
+        </div>
+        <div class="feature-text">
+          <h4>Dessert</h4>
+        </div>
+      </a>
+    </div>
+    <div class="feature-container anythingfoodCont" id="Other">
+      <a class="feature-anchor" href="/api/getrecipes/Other">
+        <div class="feature-image">
+          <img src="/img/anythingFood.jpg" alt="other" style="width:100%">
+        </div>
+        <div class="feature-text">
+          <h4>Other</h4>
+        </div>
+      </a>
     </div>
   </div>
 </div>
-
+<footer>
+  In The Kitchen &copy; 2019
+</footer>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
