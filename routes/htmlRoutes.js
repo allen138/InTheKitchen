@@ -1,3 +1,4 @@
+
 var db = require("../models");
 
 module.exports = function(app) {
@@ -30,6 +31,7 @@ module.exports = function(app) {
   var array = [];
   // My favorites page for a logged in user
   app.get("/favorites", function(req, res) {
+    array =[];
     db.Favorites.findAll({
       where: { AuthorId: userId },
       attributes: [["RecipeId", "id"]]
@@ -59,6 +61,10 @@ module.exports = function(app) {
     }).then(function(dbRecipe) {
       res.render("yourRecipes", { Recipes: dbRecipe });
     });
+  });
+  //get all recipes
+  app.get("/api/getrecipes", function(req, res) {
+    db.Recipes.findAll();
   });
   // Render Login Page
   app.get("/login", function(req, res) {
