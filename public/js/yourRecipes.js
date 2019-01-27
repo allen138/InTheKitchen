@@ -30,3 +30,15 @@ function updateRecipe(authorData) {
     window.location.href = "/yourrecipes";
   });
 }
+var deleteRecipe;
+$(".deleteYourRecipe").on("click", function() {
+  deleteRecipe = $(this).attr("id");
+  console.log(deleteRecipe);
+  $.ajax("/api/deleteRecipe/" + deleteRecipe, {
+    type: "DELETE"
+  }).then(function() {
+    setTimeout(function() {
+      location.reload();
+    }, 500);
+  });
+});

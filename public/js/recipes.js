@@ -15,7 +15,9 @@ function getUser() {
 $(document).on("click", ".submitform", function() {
   event.preventDefault();
   console.log($("#alertSuccess").val());
-
+  if (!$("#avatar").val()) {
+    return $("#modalValidateForm").modal("toggle");
+  }
   insertNewRecipe({
     cuisine: $("#cuisinetype")
       .val()
@@ -32,6 +34,7 @@ $(document).on("click", ".submitform", function() {
     window.location.href = "/home";
   }, 1000);
 });
+
 function insertNewRecipe(authorData) {
   $.post("/api/newrecipes", authorData)
     .then(console.log("here"))

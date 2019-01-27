@@ -99,6 +99,18 @@ module.exports = function(app) {
       res.json(dbAuthor);
     });
   });
+  // delete your recipe
+  app.delete("/api/deleteRecipe/:id", function(req, res) {
+    userId = req.user.id;
+    console.log(userId);
+    db.Recipes.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(results) {
+      res.json(results);
+    });
+  });
   // log errs
   app.use(function(err, req, res, next) {
     console.log(err);

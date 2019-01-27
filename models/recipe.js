@@ -13,12 +13,17 @@ module.exports = function(sequelize, DataTypes) {
     },
     image: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
     },
     desc: {
       type: DataTypes.TEXT,
       allowNull: false,
-      len: [1]
+      validate: {
+        len: [1]
+      }
     }
   });
   Recipes.associate = function(models) {
