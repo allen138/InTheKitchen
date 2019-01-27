@@ -44,6 +44,7 @@
             {{#each Recipes}}
             <div class="blog-container" id ="recipe"{{id}}>
                 <h3 id="blogTitle"><strong class ="title{{id}}" id ={{title}}>{{title}}</strong></h3>
+                <button class="deleteYourRecipe" id ={{id}}><img src="/img/trashCan.png" alt="save-recipe" width="30" height="30"></button>
                 <button class="editRecipe" id ={{id}} data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/editImg.png" alt="edit"></button>
                 <img class="blogImg img{{id}} " id ={{image}} src="/uploads/{{image}}" width="300" height="300">
                 <p class = "desc{{id}}" id ={{desc}}>{{desc}}</p>
@@ -51,6 +52,7 @@
             {{/each}}
         </div>
     </div>
+    <a id="backToTop" href="#page-top">Back To Top &#8593;</a>
 </div>
 
 <!-- Modal -->

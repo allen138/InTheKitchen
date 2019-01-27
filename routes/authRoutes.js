@@ -30,7 +30,7 @@ module.exports = function(app) {
     "/auth/facebook/callback",
     passport.authenticate("facebook", { failureRedirect: "/" }),
     function(req, res) {
-      res.redirect("/account");
+      res.redirect("/home");
     }
   );
 
