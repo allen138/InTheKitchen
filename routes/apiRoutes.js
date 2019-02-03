@@ -72,7 +72,7 @@ module.exports = function(app) {
     });
   });
 
-  //post photo
+  // post photo
   app.post("/photo", upload.single("avatar"), function(req, res) {
     console.log(req.body); // form files
     res.status(204).end();

@@ -11,7 +11,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto"></ul>
         </div>
-          <div class="dropdown">
+        <div class="dropdown">
             <button class="btn btn-light bg-light dropdown-toggle" type="button" id="avatar-dropdown-menu" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false"><img id="avatarImgTag">
             </button>
@@ -27,7 +27,7 @@
             <h1 class="display-4">Your Kitchen</h1>
         </div>
     </div>
-        <div class="container-myHomeBtns">
+    <div class="container-myHomeBtns">
         <div class="row">
             <div class="col">
                 <a class="homeBtnsLink" href="/favorites"><button class="btn btn-outline-secondary myHomeBtn">Favorites</button></a>
@@ -42,12 +42,14 @@
     <div class="main-blog-container">
         <div>
             {{#each Recipes}}
-            <div class="blog-container" id ="recipe"{{id}}>
-                <h3 id="blogTitle"><strong class ="title{{id}}" id ={{title}}>{{title}}</strong></h3>
-                <button class="deleteYourRecipe" id ={{id}}><img src="/img/trashCan.png" alt="save-recipe" width="30" height="30"></button>
-                <button class="editRecipe" id ={{id}} data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/editImg.png" alt="edit"></button>
-                <img class="blogImg img{{id}} " id ={{image}} src="/uploads/{{image}}" width="300" height="300">
-                <p class = "desc{{id}}" id ={{desc}}>{{desc}}</p>
+            <div class="blog-container" id="recipe" {{id}}>
+                <h3 id="blogTitle"><strong class="title{{id}}" id={{title}}>{{title}}</strong></h3>
+                <button class="deleteYourRecipe" id={{id}}><img src="/img/trashCan.png" alt="save-recipe" width="30"
+                        height="30"></button>
+                <button class="editRecipe" id={{id}} data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/editImg.png"
+                        alt="edit"></button>
+                <img class="blogImg img{{id}} " id={{image}} src="/uploads/{{image}}" width="300" height="300">
+                <p class="desc{{id}}" id={{desc}}>{{desc}}</p>
             </div>
             {{/each}}
         </div>
@@ -56,42 +58,35 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Update Your Recipe</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="/photo" method="POST" enctype="multipart/form-data">
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Update Your Recipe</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/photo" method="POST" enctype="multipart/form-data">
 
-    <div class="form-group">
-      <label for="title">What you Cooking?</label>
-      <input type="text" class="form-control" id="titleforRecipe">
+                    <div class="form-group">
+                        <label for="title">What you Cooking?</label>
+                        <input type="text" class="form-control" id="titleforRecipe">
+                    </div>
+                    <div class="form-group">
+                        <label for="textAreaForRecipe">How'd you do it?</label>
+                        <textarea class="form-control" id="textAreaForRecipe" rows="12"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary savetheUpdates">Save changes</button>
+            </div>
+        </div>
     </div>
-{{!-- I cant seem to update this id correctly --}}
-    {{!-- <div class="form-group">
-      <label for="avatar">Upload a Photo</label>
-      <input type="file" class="btn btn-outline-secondary fileName" id="avatar" name="avatar" accept="image/png, image/jpeg, image/jpg">
-    <input type="submit"  id="clicktoUpload" value ="Click To upload">
-    <div class="alertSuccess" id="alertSuccess"></div>
-    </div> --}}
-    <div class="form-group">
-      <label for="textAreaForRecipe">How'd you do it?</label>
-      <textarea class="form-control" id="textAreaForRecipe" rows="12" ></textarea>
-    </div>
-
-  </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary savetheUpdates">Save changes</button>
-      </div>
-    </div>
-  </div>
 </div>
 <footer>
     In The Kitchen &copy; 2019
