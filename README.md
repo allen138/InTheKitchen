@@ -34,4 +34,4 @@
  * Chai
 
 ## Links
-https://inthekitchen-ucb.herokuapp.com/
+https://thekitchenrecipes.herokuapp.com/
