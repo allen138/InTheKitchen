@@ -10,9 +10,9 @@ function getUser() {
 }
 $(document).on("click", ".saveRecipe", function() {
   var grab = "#saveSuccess" + $(this).attr("id");
-  $(grab).html("Saved To Favorites");
+  $(grab).html("Saved!");
   console.log(grab);
-  $(grab).fadeOut(3000);
+  $(grab).fadeOut(2000);
   insertnewFav({
     AuthorId: userid,
     RecipeId: $(this).attr("id")

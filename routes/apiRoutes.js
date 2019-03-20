@@ -1,22 +1,15 @@
-var multer = require("multer");
-var storage = multer.diskStorage({
-  destination: function(req, file, cb) {
-    cb(null, "./public/uploads");
-  },
-  filename: function(req, file, cb) {
-    if (req.Recipes) {
-      // TODO: consider adding file type extension
-      return cb(null, req.Recipes.title.toString());
-    }
-    // fallback to the original name if you don't have a book attached to the request yet.
-    return cb(null, file.originalname);
-  }
-});
-var upload = multer({ storage: storage });
 var db = require("../models");
+var cloudinary = require("cloudinary").v2;
+var multipart = require("connect-multiparty");
+var multipartMiddleware = multipart();
+
+cloudinary.config({
+  cloud_name: process.env.cloudName,
+  api_key: process.env.cloudKey,
+  api_secret: process.env.cloudSecret
+});
 
 module.exports = function(app) {
-  /// ****** this if for Recipe
   // Get all recipe
   app.get("/api/recipes", function(req, res) {
     db.Recipes.findAll({ where: { id: req.params.id } }).then(function(
@@ -25,10 +18,27 @@ module.exports = function(app) {
       res.json(dbRecipes);
     });
   });
+
   // Create a new example
   app.post("/api/newrecipes", function(req, res) {
-    db.Recipes.create(req.body).then(function(dbRecipe) {
-      res.json(dbRecipe);
+    multipartMiddleware(req, res, () => {
+      if (req.files && req.files.image && req.files.image.path) {
+        var imageFile = req.files.image.path;
+        cloudinary.uploader
+          .upload(imageFile, { tags: "recipe_image" })
+          .then(image => {
+            db.Recipes.create({
+              cuisine: req.body.cuisine,
+              title: req.body.title,
+              image: image.secure_url,
+              desc: req.body.description,
+              AuthId: req.user.id
+            }).then(res.redirect("/home"));
+          })
+          .catch(err => console.log(err));
+      } else {
+        res.redirect("/createPost");
+      }
     });
   });
 
@@ -72,11 +82,6 @@ module.exports = function(app) {
     });
   });
 
-  // post photo
-  app.post("/photo", upload.single("avatar"), function(req, res) {
-    console.log(req.body); // form files
-    res.status(204).end();
-  });
   //post likes
   app.post("/api/newfavorite", function(req, res) {
     db.Favorites.create(req.body).then(function(dbFav) {

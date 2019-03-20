@@ -4,8 +4,7 @@ module.exports = {
     password: process.env.password,
     database: process.env.database,
     host: "127.0.0.1",
-    dialect: "mysql",
-    cloud_name: "dlfa7zuoj"
+    dialect: "mysql"
   },
   test: {
     username: "root",
@@ -16,7 +15,6 @@ module.exports = {
   },
   production: {
     useEnvVariable: "JAWSDB_URL",
-    dialect: "mysql",
-    cloud_name: "dlfa7zuoj"
+    dialect: "mysql"
   }
 };
