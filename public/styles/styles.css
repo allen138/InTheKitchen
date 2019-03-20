@@ -47,6 +47,9 @@ body{
 div.dropdown-menu > a.dropdown-item:hover{
   background-color: rgba(0, 0, 0, 0.1);
 }
+.dropdown-toggle::after{
+  display: none;
+}
 /* login page styles */
 #login-btn-container{
   margin: 0 auto;
