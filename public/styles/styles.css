@@ -244,5 +244,12 @@ footer{
   }
   .deleteYourRecipe{
     float: left;
+    top: 0px;
+  }
+  .editRecipe{
+    top: 0px;
+  }
+  #login-btn-container{
+    width: 350px;
   }
 }
