@@ -124,8 +124,7 @@ p{
   transition: transform .2s;
 }
 .saveRecipe:hover{
-  background-color: rgba(26, 23, 23, 0.397);
-  transform: scale(1.3);
+  transform: scale(1.2);
 }
 .editRecipe{
   position: relative;
@@ -139,8 +138,7 @@ p{
   transition: transform .2s;
 }
 .editRecipe:hover{
-  background-color: rgba(26, 23, 23, 0.397);
-  transform: scale(1.3);
+  transform: scale(1.2);
 }
 .deleteRecipe{
   position: relative;
@@ -154,8 +152,7 @@ p{
   transition: transform .2s;
 }
 .deleteRecipe:hover{
-  background-color: rgba(26, 23, 23, 0.397);
-  transform: scale(1.3);
+  transform: scale(1.2);
 }
 .deleteYourRecipe{
   position: relative;
@@ -169,8 +166,7 @@ p{
   transition: transform .2s;
 }
 .deleteYourRecipe:hover{
-  background-color: rgba(26, 23, 23, 0.397);
-  transform: scale(1.3);
+  transform: scale(1.2);
 }
 /* My Home Page */
 #avatar-dropdown-menu{
@@ -233,5 +229,14 @@ footer{
     display: grid;
     grid-template-columns: auto;
     gap: 20px;
+  }
+  .myHomeBtn{
+    padding: 5px;
+  }
+  .saveRecipe{
+    top: 0;
+  }
+  .deleteYourRecipe{
+    clear: both;
   }
 }
