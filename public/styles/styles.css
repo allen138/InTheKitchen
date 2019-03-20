@@ -18,6 +18,12 @@ body{
   padding: 1rem;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
 }
+.login, .addRecipe{
+  color: black
+}
+.login:hover, .addRecipe:hover{
+  text-decoration: none
+}
 /* grid layout */
 .wrapper{
   display:grid;
@@ -190,7 +196,7 @@ p{
 }
 .myHomeBtn:hover{
   text-decoration: none;
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 .homeBtnsLink:hover{
   text-decoration: none;
@@ -237,6 +243,6 @@ footer{
     top: 0;
   }
   .deleteYourRecipe{
-    clear: both;
+    float: left;
   }
 }
