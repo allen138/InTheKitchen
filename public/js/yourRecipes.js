@@ -1,14 +1,17 @@
 var idofRecipe;
-$(document).on("click", ".editRecipe", function() {
+$(".editRecipe").on("click", function() {
   idofRecipe = $(this).attr("id");
-  console.log(idofRecipe);
-  var titletoUse = ".title" + idofRecipe;
-  var imgtoUse = ".img" + idofRecipe;
-  var desctoUse = ".desc" + idofRecipe;
-  $("#titleforRecipe").val($(titletoUse).attr("id"));
-  $("#avatar").val($(imgtoUse).attr("id"));
-  $("#textAreaForRecipe").val($(desctoUse).attr("id"));
+  $.ajax({
+    method: "GET",
+    url: "/api/recipes/" + idofRecipe
+  })
+    .then(res => {
+      $("#titleforRecipe").val(res.title);
+      $("#textAreaForRecipe").val(res.desc);
+    })
+    .catch(err => console.log(err));
 });
+
 $(document).on("click", ".savetheUpdates", function() {
   event.preventDefault();
 
@@ -21,6 +24,7 @@ $(document).on("click", ".savetheUpdates", function() {
     window.location.href = "/yourrecipes";
   }, 1000);
 });
+
 function updateRecipe(authorData) {
   $.ajax({
     method: "PUT",
@@ -30,6 +34,7 @@ function updateRecipe(authorData) {
     window.location.href = "/yourrecipes";
   });
 }
+
 var deleteRecipe;
 $(".deleteYourRecipe").on("click", function() {
   deleteRecipe = $(this).attr("id");

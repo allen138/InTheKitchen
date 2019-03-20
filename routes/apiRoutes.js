@@ -19,6 +19,16 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/recipes/:id", function(req, res) {
+    db.Recipes.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(dbRecipe => {
+      res.json(dbRecipe);
+    });
+  });
+
   // Create a new example
   app.post("/api/newrecipes", function(req, res) {
     multipartMiddleware(req, res, () => {
