@@ -28,7 +28,7 @@ body{
 .wrapper{
   display:grid;
   grid-template-columns: 310px 310px 310px 310px; 
-  gap: 20px;
+  grid-gap: 20px;
 }
 .wrapper > div{
   background: rgb(245, 243, 243);
